@@ -19,6 +19,7 @@ var dashTimer = 0.0
 var TeleportRange = 20
 
 
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) 
 	
