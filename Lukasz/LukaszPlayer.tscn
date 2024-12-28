@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://mq5wxvelgonk"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ers6a"]
+[ext_resource type="Script" path="res://Scripts/helmetMovin.gd" id="2_06igt"]
+[ext_resource type="PackedScene" uid="uid://c8f7vyg78v7n5" path="res://models/Brush.glb" id="3_utfon"]
+[ext_resource type="PackedScene" uid="uid://3vmnyf38weq" path="res://scenes/pickaxe.tscn" id="4_ahrkj"]
+[ext_resource type="PackedScene" uid="uid://b8svjucl356sv" path="res://scenes/helmet_light.tscn" id="5_6jc4j"]
+[ext_resource type="Shader" path="res://Lukasz/LukaszPlayer.gdshader" id="5_7b18k"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xcuja"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1kdbh"]
+render_priority = 0
+shader = ExtResource("5_7b18k")
+
+[sub_resource type="QuadMesh" id="QuadMesh_wepop"]
+material = SubResource("ShaderMaterial_1kdbh")
+size = Vector2(1.065, 0.52)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_57a2o"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_ers6a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_xcuja")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.630338, 0)
+script = ExtResource("2_06igt")
+
+[node name="Brush" parent="Camera3D" instance=ExtResource("3_utfon")]
+transform = Transform3D(0.12, 0, 0, 0, -5.24537e-09, 0.12, 0, -0.12, -5.24537e-09, 0.468944, -0.399174, -0.817855)
+
+[node name="Pickaxe" parent="Camera3D" instance=ExtResource("4_ahrkj")]
+transform = Transform3D(0.761243, 0, 0, 0, 0.761243, 0, 0, 0, 0.761243, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.117136)
+mesh = SubResource("QuadMesh_wepop")
+
+[node name="HelmetLight" parent="." instance=ExtResource("5_6jc4j")]
+transform = Transform3D(1, 0, 0, 0, 0.999725, 0.0234726, 0, -0.0234726, 0.999724, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_57a2o")
+
+[connection signal="PickaxeBonk" from="Camera3D/Pickaxe" to="." method="_on_pickaxe_pickaxe_bonk"]
