@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxt8apxihhvya"]
 
 [ext_resource type="PackedScene" uid="uid://liq5gjvkx1s8" path="res://scenes/Player.tscn" id="1_05q5e"]
-[ext_resource type="PackedScene" uid="uid://bb1itlbewfnav" path="res://scenes/breakable_wall_script.tscn" id="2_gfklk"]
+[ext_resource type="PackedScene" path="res://scenes/breakable_wall_script.tscn" id="2_gfklk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ul8lb"]
 size = Vector3(31.5626, 10.8287, 1)
