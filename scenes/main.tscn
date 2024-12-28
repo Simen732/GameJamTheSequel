@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxt8apxihhvya"]
+[gd_scene load_steps=11 format=3 uid="uid://bxt8apxihhvya"]
 
+[ext_resource type="Script" path="res://Elias/Scripts/changeScene.gd" id="1_4aldb"]
 [ext_resource type="PackedScene" uid="uid://liq5gjvkx1s8" path="res://scenes/Player.tscn" id="1_05q5e"]
-[ext_resource type="PackedScene" uid="uid://bb1itlbewfnav" path="res://scenes/breakable_wall_script.tscn" id="2_gfklk"]
+[ext_resource type="PackedScene" path="res://scenes/breakable_wall_script.tscn" id="2_gfklk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ul8lb"]
 size = Vector3(31.5626, 10.8287, 1)
@@ -25,6 +26,7 @@ radius = 5.46464
 radius = 8.45564
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_4aldb")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0327672, -0.754538, -0.655438, 0.968791, -0.137239, 0.206421, -0.245704, -0.641746, 0.726492, -9.80535, 4.84916, 5.47192)
@@ -109,3 +111,6 @@ radius = 8.44781
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LightUnlock/Area3D"]
 shape = SubResource("SphereShape3D_gmny7")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

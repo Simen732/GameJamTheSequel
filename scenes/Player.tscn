@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/helmetMovin.gd" id="2_ytvpk"]
 [ext_resource type="PackedScene" uid="uid://c8f7vyg78v7n5" path="res://models/Brush.glb" id="3_0qt35"]
 [ext_resource type="PackedScene" uid="uid://b53o5wi70bhdt" path="res://scenes/grappling-hook.tscn" id="5_abxi5"]
-[ext_resource type="PackedScene" path="res://Elias/control.tscn" id="5_twti1"]
+[ext_resource type="PackedScene" uid="uid://dpoukh6umfqtt" path="res://Elias/Scenes/control.tscn" id="5_twti1"]
 [ext_resource type="PackedScene" uid="uid://3vmnyf38weq" path="res://scenes/pickaxe.tscn" id="5_vnccm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xcuja"]
