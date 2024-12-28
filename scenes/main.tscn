@@ -11,6 +11,9 @@ size = Vector3(31.5626, 10.8287, 1)
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_05q5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.646047, 2.42206, 2.4416)
 
+[node name="Area3D" parent="CharacterBody3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.93042)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0327672, -0.754538, -0.655438, 0.968791, -0.137239, 0.206421, -0.245704, -0.641746, 0.726492, -9.80535, 4.84916, 5.47192)
 
@@ -37,3 +40,5 @@ shape = SubResource("BoxShape3D_ul8lb")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.4179, 3.9637, -68.7555)
 use_collision = true
 size = Vector3(30.8372, 10.7189, 1)
+
+[editable path="CharacterBody3D"]
