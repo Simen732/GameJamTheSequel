@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5e5ark5ewd18"
-path.s3tc="res://.godot/imported/MapGameJamTest_sandTexture.png-4fd3d90189392279612077d96ef33e84.s3tc.ctex"
+uid="uid://c5q62ypyq2sre"
+path.s3tc="res://.godot/imported/MapGameJamPreRelease_WoodenSign01.png-78f10de4925e4dd3fc309fbf841bc51e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "3bcd388b1269692ce88522b7a21eb123"
+"md5": "5a46cae503f532c0e28903230e0a5933"
 }
 
 [deps]
 
-source_file="res://Lukasz/MapGameJamTest_sandTexture.png"
-dest_files=["res://.godot/imported/MapGameJamTest_sandTexture.png-4fd3d90189392279612077d96ef33e84.s3tc.ctex"]
+source_file="res://Lukasz/MapGameJamPreRelease_WoodenSign01.png"
+dest_files=["res://.godot/imported/MapGameJamPreRelease_WoodenSign01.png-78f10de4925e4dd3fc309fbf841bc51e.s3tc.ctex"]
 
 [params]
 

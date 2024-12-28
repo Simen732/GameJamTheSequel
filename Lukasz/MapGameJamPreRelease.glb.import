@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bekhblddlnjta"
-path="res://.godot/imported/MapGameJamTest.glb-b343890ba4813f05129454ef5c41cb97.scn"
+uid="uid://b868v1aejh2ne"
+path="res://.godot/imported/MapGameJamPreRelease.glb-43e9cf8e93e3b5c3be3c242dd520c8ec.scn"
 
 [deps]
 
-source_file="res://Lukasz/MapGameJamTest.glb"
-dest_files=["res://.godot/imported/MapGameJamTest.glb-b343890ba4813f05129454ef5c41cb97.scn"]
+source_file="res://Lukasz/MapGameJamPreRelease.glb"
+dest_files=["res://.godot/imported/MapGameJamPreRelease.glb-43e9cf8e93e3b5c3be3c242dd520c8ec.scn"]
 
 [params]
 
