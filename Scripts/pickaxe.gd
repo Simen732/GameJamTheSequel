@@ -7,7 +7,8 @@ extends Node3D
 signal PickaxeBonk
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,7 +18,7 @@ func _process(delta: float) -> void:
 		
 		
 		
-
-func _on_pickaxe_area_area_entered(area: Area3D) -> void:
-	emit_signal("PickaxeBonk")
-	print(area)
+		
+func _on_pickaxe_area_area_entered(area):
+	Global.emit_signal("PickaxeDamageWall", area)
+	#print(area)

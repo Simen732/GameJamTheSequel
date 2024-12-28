@@ -6,7 +6,7 @@
 [node name="Main" type="Node3D"]
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_05q5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.646047, 2.42206, -0.99972)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.646047, 2.42206, 2.4416)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0327672, -0.754538, -0.655438, 0.968791, -0.137239, 0.206421, -0.245704, -0.641746, 0.726492, -9.80535, 4.84916, 5.47192)
@@ -30,6 +30,4 @@ size = Vector3(30.8372, 10.7189, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9662, 2.66674, 1.29924)
 
 [node name="BreakableWall2" parent="." instance=ExtResource("2_qv6ls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0563, 2.66876, -7.85698)
-
-[connection signal="DamageWall" from="CharacterBody3D" to="BreakableWall" method="_on_character_body_3d_damage_wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1754, 2.89717, -5.26778)
