@@ -27,13 +27,12 @@ transform = Transform3D(0.12, 0, 0, 0, -5.24537e-09, 0.12, 0, -0.12, -5.24537e-0
 [node name="Pickaxe" parent="Camera3D" instance=ExtResource("5_vnccm")]
 transform = Transform3D(0.761243, 0, 0, 0, 0.761243, 0, 0, 0, 0.761243, 0.466633, -0.663218, -0.483702)
 
+[node name="GrapplingHookScene" parent="Camera3D" instance=ExtResource("5_abxi5")]
+
 [node name="HelmetLight" parent="." instance=ExtResource("2_gg4o2")]
 transform = Transform3D(1, 0, 0, 0, 0.999725, 0.0234726, 0, -0.0234726, 0.999724, 0, 1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_57a2o")
-
-[node name="GrapplingHookScene" parent="." instance=ExtResource("5_abxi5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.630338, 0)
 
 [connection signal="PickaxeBonk" from="Camera3D/Pickaxe" to="." method="_on_pickaxe_pickaxe_bonk"]
