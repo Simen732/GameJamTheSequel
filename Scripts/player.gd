@@ -18,7 +18,6 @@ var dashDuration = 0.5
 var dashTimer = 0.0  
 var TeleportRange = 20
 
-signal DamageWall
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) 
@@ -90,7 +89,3 @@ func _physics_process(delta: float) -> void:
 			dashing = false  # End the dash when timer runs out
 			
 	move_and_slide()
-
-
-func _on_pickaxe_pickaxe_bonk() -> void:
-	emit_signal("DamageWall")
