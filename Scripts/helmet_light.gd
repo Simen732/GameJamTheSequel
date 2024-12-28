@@ -7,9 +7,10 @@ func _ready() -> void:
 	visible = false
 
 func _input(event):
-	if event.is_action_pressed("right_click"):
+	if event.is_action_pressed("right_click") and Global.unlocks.light:
 		toggle_light()
 		
+
 
 func toggle_light():
 	light_enabled = !light_enabled

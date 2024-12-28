@@ -11,7 +11,7 @@ func _ready() -> void:
 	visible = false
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Grapple"):
+	if event.is_action_pressed("Grapple") and Global.unlocks.grapplingHook:
 		if not going_to_target and not going_to_parent:
 			# First click - shoot to target
 			var space_state = get_world_3d().direct_space_state

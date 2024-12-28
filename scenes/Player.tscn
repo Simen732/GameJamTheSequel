@@ -5,15 +5,14 @@
 [ext_resource type="Script" path="res://Scripts/helmetMovin.gd" id="2_ytvpk"]
 [ext_resource type="PackedScene" uid="uid://c8f7vyg78v7n5" path="res://models/Brush.glb" id="3_0qt35"]
 [ext_resource type="PackedScene" uid="uid://b53o5wi70bhdt" path="res://scenes/grappling-hook.tscn" id="5_abxi5"]
-[ext_resource type="PackedScene" uid="uid://dpoukh6umfqtt" path="res://Elias/control.tscn" id="5_twti1"]
+[ext_resource type="PackedScene" path="res://Elias/control.tscn" id="5_twti1"]
 [ext_resource type="PackedScene" uid="uid://3vmnyf38weq" path="res://scenes/pickaxe.tscn" id="5_vnccm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xcuja"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_57a2o"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_c0k42"]
-size = Vector3(13.6257, 1, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6xkyo"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_5mijh")
@@ -44,6 +43,7 @@ shape = SubResource("CapsuleShape3D_57a2o")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_c0k42")
+shape = SubResource("CapsuleShape3D_6xkyo")
 
 [connection signal="PickaxeBonk" from="Camera3D/Pickaxe" to="." method="_on_pickaxe_pickaxe_bonk"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
