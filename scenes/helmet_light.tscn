@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8svjucl356sv"]
+
+[ext_resource type="Script" path="res://Scripts/helmet_light.gd" id="1_8t4vx"]
+
+[node name="HelmetLight" type="SpotLight3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999725, 0.0234726, 0, -0.0234726, 0.999725, 0, 0, 0)
+light_energy = 16.0
+light_indirect_energy = 16.0
+distance_fade_enabled = true
+spot_range = 13.0
+spot_angle = 45.7481
+script = ExtResource("1_8t4vx")

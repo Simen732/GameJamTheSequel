@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxt8apxihhvya"]
+
+[ext_resource type="PackedScene" uid="uid://liq5gjvkx1s8" path="res://scenes/Player.tscn" id="1_05q5e"]
+[ext_resource type="PackedScene" uid="uid://cwdlx7cyuy455" path="res://scenes/breakable_wall.tscn" id="2_qv6ls"]
+
+[node name="Main" type="Node3D"]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_05q5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.646047, 2.42206, -0.99972)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0327672, -0.754538, -0.655438, 0.968791, -0.137239, 0.206421, -0.245704, -0.641746, 0.726492, -9.80535, 4.84916, 5.47192)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2994, -23.3176, 1.63412)
+use_collision = true
+size = Vector3(71.8706, 48.3101, 57.2899)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.31108, 3.9637, -46.5885)
+use_collision = true
+size = Vector3(30.8372, 10.7189, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.4179, 3.9637, -68.7555)
+use_collision = true
+size = Vector3(30.8372, 10.7189, 1)
+
+[node name="BreakableWall" parent="." instance=ExtResource("2_qv6ls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9662, 2.66674, 1.29924)
+
+[node name="BreakableWall2" parent="." instance=ExtResource("2_qv6ls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0563, 2.66876, -7.85698)
+
+[connection signal="DamageWall" from="CharacterBody3D" to="BreakableWall" method="_on_character_body_3d_damage_wall"]

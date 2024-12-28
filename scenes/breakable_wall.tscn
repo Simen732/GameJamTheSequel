@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwdlx7cyuy455"]
+
+[ext_resource type="Script" path="res://Scripts/breakable_wall.gd" id="1_y2m7q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k6857"]
+size = Vector3(1.05127, 4.47717, 5.98993)
+
+[node name="BreakableWall" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6897, -0.154785)
+use_collision = true
+size = Vector3(1, 4.37939, 5.80566)
+script = ExtResource("1_y2m7q")
+
+[node name="BreakableWallArea" type="Area3D" parent="."]
+
+[node name="BreakableWallCollision" type="CollisionShape3D" parent="BreakableWallArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0256348, -0.00933838, -0.0198059)
+shape = SubResource("BoxShape3D_k6857")
