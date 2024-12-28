@@ -25,7 +25,7 @@ script = ExtResource("2_ytvpk")
 transform = Transform3D(0.12, 0, 0, 0, -5.24537e-09, 0.12, 0, -0.12, -5.24537e-09, 0.468944, -0.399174, -0.817855)
 
 [node name="Pickaxe" parent="Camera3D" instance=ExtResource("5_vnccm")]
-transform = Transform3D(0.761243, 0, 0, 0, 0.761243, 0, 0, 0, 0.761243, 0, 0, 0)
+transform = Transform3D(0.761243, 0, 0, 0, 0.761243, 0, 0, 0, 0.761243, 0.466633, -0.663218, -0.483702)
 
 [node name="GrapplingHookScene" parent="Camera3D" instance=ExtResource("5_abxi5")]
 

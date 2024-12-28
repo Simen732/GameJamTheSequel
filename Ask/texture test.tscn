@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfuil35haxoal"]
+
+[ext_resource type="Texture2D" uid="uid://nwmed5qnq8o0" path="res://Ask/textures/worn_rock_natural_01_diff_4k.png" id="1_n0pn2"]
+[ext_resource type="Texture2D" uid="uid://dqv6h0i138qnp" path="res://Ask/textures/worn_rock_natural_01_nor_gl_4k.png" id="2_o7oaq"]
+[ext_resource type="Texture2D" uid="uid://c3tdelcsb0dwr" path="res://Ask/textures/worn_rock_natural_01_rough_4k.png" id="3_cs8pk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpamm"]
+albedo_texture = ExtResource("1_n0pn2")
+roughness_texture = ExtResource("3_cs8pk")
+normal_enabled = true
+normal_texture = ExtResource("2_o7oaq")
+uv1_scale = Vector3(20, 20, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_raiyr"]
+size = Vector2(50, 50)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0282695, -0.00492638, 0.0185101)
+material_override = SubResource("StandardMaterial3D_xpamm")
+mesh = SubResource("PlaneMesh_raiyr")
