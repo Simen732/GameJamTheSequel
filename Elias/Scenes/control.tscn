@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dpoukh6umfqtt"]
 
-[ext_resource type="Texture2D" uid="uid://bgtmalu488h43" path="res://Elias/Crosshair.png" id="1_4tng6"]
+[ext_resource type="Texture2D" uid="uid://bgtmalu488h43" path="res://Elias/Assets/Crosshair.png" id="1_4tng6"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
