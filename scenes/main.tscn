@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxt8apxihhvya"]
+[gd_scene load_steps=4 format=3 uid="uid://bxt8apxihhvya"]
 
 [ext_resource type="PackedScene" uid="uid://liq5gjvkx1s8" path="res://scenes/Player.tscn" id="1_05q5e"]
 [ext_resource type="PackedScene" uid="uid://cwdlx7cyuy455" path="res://scenes/breakable_wall.tscn" id="2_qv6ls"]
+[ext_resource type="PackedScene" uid="uid://dfnnifn7fnegj" path="res://scenes/enemy.tscn" id="3_w3jty"]
 
 [node name="Main" type="Node3D"]
 
@@ -31,5 +32,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9662, 2.66674, 1.29924)
 
 [node name="BreakableWall2" parent="." instance=ExtResource("2_qv6ls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0563, 2.66876, -7.85698)
+
+[node name="Node3D" parent="." instance=ExtResource("3_w3jty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49078, 13.7267)
 
 [connection signal="DamageWall" from="CharacterBody3D" to="BreakableWall" method="_on_character_body_3d_damage_wall"]
