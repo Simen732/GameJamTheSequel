@@ -3,6 +3,8 @@ extends Node3D
 var target_pos: Vector3
 var going_to_target := false
 var going_to_parent := false
+var updateParentTicks := 10
+var updateParentTotal := 0
 @export var hook_speed := 20.0
 
 func _ready() -> void:
@@ -31,9 +33,13 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if going_to_target:
+		updateParentTotal -= 1
 		global_position = global_position.move_toward(target_pos, hook_speed * delta)
 	elif going_to_parent:
-		global_position = global_position.move_toward(get_parent().global_position, hook_speed * delta)
-		if global_position == get_parent().global_position:
+		visible = false
+		get_parent().get_parent().global_position = get_parent().get_parent().global_position.move_toward(global_position, hook_speed * delta)
+		updateParentTotal += 1
+		if updateParentTicks < updateParentTotal:
+			global_position = get_parent().get_parent().global_position
+		if global_position == get_parent().get_parent().global_position:
 			going_to_parent = false
-			visible = false
