@@ -22,6 +22,7 @@ var TeleportRange = 20
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) 
+	$Area3D.body_entered.connect(_on_Area3D_body_entered)
 	
 func _input(event):
 	if event is InputEventMouseMotion and !Menu_open:
@@ -90,3 +91,6 @@ func _physics_process(delta: float) -> void:
 			dashing = false  # End the dash when timer runs out
 			
 	move_and_slide()
+	
+func _on_Area3D_body_entered(body: Node) -> void:
+	print("Touching")

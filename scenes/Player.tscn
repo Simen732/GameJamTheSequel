@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://liq5gjvkx1s8"]
+[gd_scene load_steps=11 format=3 uid="uid://liq5gjvkx1s8"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_5mijh"]
 [ext_resource type="PackedScene" uid="uid://b8svjucl356sv" path="res://scenes/helmet_light.tscn" id="2_gg4o2"]
@@ -11,6 +11,9 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xcuja"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_57a2o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c0k42"]
+size = Vector3(13.6257, 1, 1)
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_5mijh")
@@ -37,5 +40,10 @@ transform = Transform3D(1, 0, 0, 0, 0.999725, 0.0234726, 0, -0.0234726, 0.999724
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_57a2o")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_c0k42")
 
 [connection signal="PickaxeBonk" from="Camera3D/Pickaxe" to="." method="_on_pickaxe_pickaxe_bonk"]
