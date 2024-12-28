@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://liq5gjvkx1s8"]
+[gd_scene load_steps=9 format=3 uid="uid://liq5gjvkx1s8"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_5mijh"]
 [ext_resource type="PackedScene" uid="uid://b8svjucl356sv" path="res://scenes/helmet_light.tscn" id="2_gg4o2"]
 [ext_resource type="Script" path="res://Scripts/helmetMovin.gd" id="2_ytvpk"]
 [ext_resource type="PackedScene" uid="uid://c8f7vyg78v7n5" path="res://models/Brush.glb" id="3_0qt35"]
+[ext_resource type="PackedScene" uid="uid://b53o5wi70bhdt" path="res://scenes/grappling-hook.tscn" id="5_abxi5"]
 [ext_resource type="PackedScene" uid="uid://3vmnyf38weq" path="res://scenes/pickaxe.tscn" id="5_vnccm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xcuja"]
@@ -31,5 +32,8 @@ transform = Transform3D(1, 0, 0, 0, 0.999725, 0.0234726, 0, -0.0234726, 0.999724
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_57a2o")
+
+[node name="GrapplingHookScene" parent="." instance=ExtResource("5_abxi5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.630338, 0)
 
 [connection signal="PickaxeBonk" from="Camera3D/Pickaxe" to="." method="_on_pickaxe_pickaxe_bonk"]
