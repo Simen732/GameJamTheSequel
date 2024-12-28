@@ -1,6 +1,7 @@
 extends Node
 
 signal PickaxeDamageWall
+signal PickaxeUnlocked
 
 var unlocks := {
 	"wallrun": false,
@@ -10,6 +11,7 @@ var unlocks := {
 	"pickaxe": false,
 	"brush": false
 }
+
 
 var stages := {
 	"pyramid": false,

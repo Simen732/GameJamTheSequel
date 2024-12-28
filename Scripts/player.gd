@@ -22,7 +22,6 @@ var TeleportRange = 20
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) 
-	$Area3D.body_entered.connect(_on_Area3D_body_entered)
 	
 func _input(event):
 	if event is InputEventMouseMotion and !Menu_open:
@@ -73,24 +72,54 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		if(is_on_wall() ):
+		if(is_on_wall() and Global.unlocks.wallrun ):
 			jumpCount = 2
 			velocity.y = 0
 		
 		# Handle Teleport
-		if Input.is_action_just_pressed("Teleport"):
+		if Input.is_action_just_pressed("Teleport") and Global.unlocks.teleport:
 			# Get the direction the player is looking at
 			var teleport_direction = camera.global_transform.basis.z.normalized()
 			# Apply the teleport, scaling by the teleport range
 			global_transform.origin += -teleport_direction * TeleportRange
 			
-	# Handle dash timer countdown
 	if dashing:
 		dashTimer -= delta
 		if dashTimer <= 0.0:
-			dashing = false  # End the dash when timer runs out
+			dashing = false  
 			
 	move_and_slide()
 	
-func _on_Area3D_body_entered(body: Node) -> void:
-	print("Touching")
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.get_parent().name == "PickaxeUnlock":
+		print("Du har nå pickaxe")
+		Global.emit_signal("PickaxeUnlocked")
+		Global.unlocks.pickaxe = true
+		area.get_parent().queue_free()
+		
+	if area.get_parent().name == "TeleportUnlock":
+		print("Du har nå TeleportUnlock")
+		Global.unlocks.teleport = true
+		area.get_parent().queue_free()
+		
+	if area.get_parent().name == "WallRunningUnlock":
+		print("Du har nå WallRunningUnlock")
+		Global.unlocks.wallrun = true
+		area.get_parent().queue_free()
+		
+	if area.get_parent().name == "GraplingHookUnlock":
+		print("Du har nå GraplingHookUnlock")
+		Global.unlocks.grapplingHook = true
+		area.get_parent().queue_free()
+		
+	if area.get_parent().name == "BrushUnlock":
+		print("Du har nå Brush")
+		Global.unlocks.brush = true
+		area.get_parent().queue_free()
+
+	if area.get_parent().name == "LightUnlock":
+		print("Du har nå Light")
+		Global.unlocks.light = true
+		area.get_parent().queue_free()
