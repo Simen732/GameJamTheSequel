@@ -8,11 +8,13 @@ extends Node3D
 
 func _ready() -> void:
 	node_3d.visible = false
+	brush_collision.disabled = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("brush") and Global.unlocks.brush:
 		node_3d.visible = true
+		brush_collision.disabled = false
 		animation_player.play("Use")
 		
 func _on_brush_area_area_entered(area):
@@ -22,3 +24,4 @@ func _on_brush_area_area_entered(area):
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	node_3d.visible = false
+	brush_collision.disabled = true
