@@ -16,7 +16,7 @@ var pitch: float = 0.0
 var dashing = false
 var dashDuration = 0.5 
 var dashTimer = 0.0  
-var TeleportRange = 20
+var TeleportRange = 15
 
 
 
@@ -80,8 +80,23 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("Teleport") and Global.unlocks.teleport:
 			# Get the direction the player is looking at
 			var teleport_direction = camera.global_transform.basis.z.normalized()
-			# Apply the teleport, scaling by the teleport range
-			global_transform.origin += -teleport_direction * TeleportRange
+			
+			# Create a raycast to check for obstacles
+			var space_state = get_world_3d().direct_space_state
+			var ray_start = global_transform.origin
+			var ray_end = ray_start - teleport_direction * TeleportRange
+			
+			# Create raycast query
+			var query = PhysicsRayQueryParameters3D.create(ray_start, ray_end)
+			var result = space_state.intersect_ray(query)
+			
+			# If we hit something, teleport to just before the hit point
+			if result:
+				var distance_to_wall = ray_start.distance_to(result.position)
+				global_transform.origin += -teleport_direction * (distance_to_wall - 3.0) # Subtract 1.0 to stop slightly before the wall
+			else:
+				# No wall found, teleport the full range
+				global_transform.origin += -teleport_direction * TeleportRange
 			
 	if dashing:
 		dashTimer -= delta

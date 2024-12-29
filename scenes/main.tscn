@@ -68,7 +68,7 @@ shape = SubResource("BoxShape3D_wrbot")
 
 [node name="brushable_object_script" parent="CSGBox3D3" instance=ExtResource("3_24x5g")]
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_05q5e")]
+[node name="Player" parent="." instance=ExtResource("1_05q5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.437765, 2.03802, 9.54425)
 
 [node name="PickaxeUnlock" type="CSGSphere3D" parent="."]
