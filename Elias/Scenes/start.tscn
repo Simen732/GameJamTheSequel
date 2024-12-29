@@ -112,8 +112,8 @@ omni_range = 12.4328
 environment = SubResource("Environment_i53wi")
 
 [node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0682571, 30.6404, -0.160522)
-size = Vector3(6.21753, 30.7493, 6.01978)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0682571, 27.677, -0.160522)
+size = Vector3(6.21753, 36.6761, 6.01978)
 
 [node name="Touchable" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45.082, 0)

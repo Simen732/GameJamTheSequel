@@ -23,6 +23,5 @@ var stages := {
 	"pyramid": false,
 	"room1": false,
 	"room2": false,
-	"room3": false,
 	"boss": false
 }
