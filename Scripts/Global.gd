@@ -4,6 +4,11 @@ signal PickaxeDamageWall
 signal PickaxeUnlocked
 signal brushBrushingObject
 
+signal BrushUnlocked
+signal TeleportUnlocked
+signal GrappleUnlocked
+signal LightUnlocked
+
 var unlocks := {
 	"wallrun": false,
 	"grapplingHook": false,
