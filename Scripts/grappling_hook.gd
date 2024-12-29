@@ -37,9 +37,11 @@ func _process(delta: float) -> void:
 		global_position = global_position.move_toward(target_pos, hook_speed * delta)
 	elif going_to_parent:
 		visible = false
-		get_parent().get_parent().global_position = get_parent().get_parent().global_position.move_toward(global_position, hook_speed * delta)
+		var player = get_parent().get_parent()
+		player.velocity = Vector3(0, 0, 0)
+		player.global_position = player.global_position.move_toward(global_position, hook_speed * delta)
 		updateParentTotal += 1
 		if updateParentTicks < updateParentTotal:
-			global_position = get_parent().get_parent().global_position
-		if global_position == get_parent().get_parent().global_position:
+			global_position = player.global_position
+		if global_position == player.global_position:
 			going_to_parent = false
