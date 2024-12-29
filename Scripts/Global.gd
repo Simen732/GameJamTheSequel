@@ -2,6 +2,7 @@ extends Node
 
 signal PickaxeDamageWall
 signal PickaxeUnlocked
+signal brushBrushingObject
 
 var unlocks := {
 	"wallrun": false,
