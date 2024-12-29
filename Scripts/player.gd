@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		if(is_on_wall() and Global.unlocks.wallrun ):
+		if(is_on_wall() and Global.unlocks.wallrun and Input.is_anything_pressed() ):
 			jumpCount = 2
 			velocity.y = 0
 		
