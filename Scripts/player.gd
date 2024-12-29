@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		if(is_on_wall() and Global.unlocks.wallrun ):
+		if(is_on_wall() and Global.unlocks.wallrun and Input.is_anything_pressed() ):
 			jumpCount = 2
 			velocity.y = 0
 		
@@ -122,7 +122,6 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		
 	if area.get_parent().name == "WallRunningUnlock":
 		print("Du har nå WallRunningUnlock")
-		Global.emit_signal("WallrunUnlocked")
 		Global.unlocks.wallrun = true
 		area.get_parent().queue_free()
 		
