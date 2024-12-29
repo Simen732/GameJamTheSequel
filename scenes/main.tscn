@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bmk7tu64e06hs" path="res://scenes/breakable_wall_script.tscn" id="2_gfklk"]
 [ext_resource type="PackedScene" uid="uid://cui65gaoxha2o" path="res://Elias/Scenes/brushable_object_script.tscn" id="3_24x5g"]
 [ext_resource type="PackedScene" uid="uid://djuncit5lq7u8" path="res://models/Axe_and_Pickaxe (.blend).glb" id="5_35fmf"]
-[ext_resource type="Material" uid="uid://dw5v5soe6cqyf" path="res://materials/Bubble.tres" id="5_m66eh"]
+[ext_resource type="Material" path="res://materials/Bubble.tres" id="5_m66eh"]
 [ext_resource type="PackedScene" uid="uid://bkiahbotr2bks" path="res://models/grappling_hook.glb" id="7_hbsqs"]
 [ext_resource type="PackedScene" uid="uid://c8f7vyg78v7n5" path="res://models/Brush.glb" id="8_iksye"]
 
