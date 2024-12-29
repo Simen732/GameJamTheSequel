@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_5mijh"]
 [ext_resource type="PackedScene" uid="uid://b8svjucl356sv" path="res://scenes/helmet_light.tscn" id="2_gg4o2"]
 [ext_resource type="Script" path="res://Scripts/helmetMovin.gd" id="2_ytvpk"]
-[ext_resource type="PackedScene" uid="uid://c8f7vyg78v7n5" path="res://models/Brush.glb" id="3_0qt35"]
 [ext_resource type="PackedScene" uid="uid://b53o5wi70bhdt" path="res://scenes/grappling-hook.tscn" id="5_abxi5"]
 [ext_resource type="PackedScene" uid="uid://dpoukh6umfqtt" path="res://Elias/Scenes/control.tscn" id="5_twti1"]
 [ext_resource type="PackedScene" uid="uid://3vmnyf38weq" path="res://scenes/pickaxe.tscn" id="5_vnccm"]
+[ext_resource type="PackedScene" uid="uid://wmkr3if58oo6" path="res://Elias/Scenes/brush.tscn" id="6_wyb8h"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xcuja"]
 
@@ -24,15 +24,15 @@ mesh = SubResource("CapsuleMesh_xcuja")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.630338, 0)
 script = ExtResource("2_ytvpk")
 
-[node name="Brush" parent="Camera3D" instance=ExtResource("3_0qt35")]
-transform = Transform3D(0.12, 0, 0, 0, -5.24537e-09, 0.12, 0, -0.12, -5.24537e-09, 0.468944, -0.399174, -0.817855)
-
 [node name="Pickaxe" parent="Camera3D" instance=ExtResource("5_vnccm")]
 transform = Transform3D(0.761243, 0, 0, 0, 0.761243, 0, 0, 0, 0.761243, 0.466633, -0.663218, -0.483702)
 
 [node name="GrapplingHookScene" parent="Camera3D" instance=ExtResource("5_abxi5")]
 
 [node name="Control" parent="Camera3D" instance=ExtResource("5_twti1")]
+
+[node name="Brush" parent="Camera3D" instance=ExtResource("6_wyb8h")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0.45664, -0.300716, -0.809452)
 
 [node name="HelmetLight" parent="." instance=ExtResource("2_gg4o2")]
 transform = Transform3D(1, 0, 0, 0, 0.999725, 0.0234726, 0, -0.0234726, 0.999724, 0, 1, 0)

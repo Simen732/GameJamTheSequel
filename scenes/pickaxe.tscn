@@ -74,7 +74,6 @@ _data = {
 radius = 0.43665
 
 [node name="Node3D" type="Node3D"]
-visible = false
 script = ExtResource("1_08l8x")
 
 [node name="Axe_and_Pickaxe (_blend)" parent="." instance=ExtResource("1_ac6po")]
@@ -100,6 +99,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0356966, 0.808003, -0.3957
 shape = SubResource("SphereShape3D_dbxnv")
 disabled = true
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="PickaxeArea" to="." method="_on_pickaxe_area_area_entered"]
 
 [editable path="Axe_and_Pickaxe (_blend)"]
