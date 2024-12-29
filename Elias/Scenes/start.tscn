@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://co7lfv01d6asm"]
+[gd_scene load_steps=13 format=3 uid="uid://co7lfv01d6asm"]
 
 [ext_resource type="PackedScene" uid="uid://b868v1aejh2ne" path="res://Lukasz/MapGameJamPreRelease.glb" id="1_75ffk"]
 [ext_resource type="PackedScene" uid="uid://liq5gjvkx1s8" path="res://scenes/Player.tscn" id="1_qgk7k"]
 [ext_resource type="PackedScene" uid="uid://bkp42bld4138q" path="res://Elias/Models/low_poly_torches.glb" id="2_mbleo"]
 [ext_resource type="Script" path="res://Elias/Scripts/touchable.gd" id="4_6nvnc"]
-[ext_resource type="Texture2D" uid="uid://cn4sccctdfp6v" path="res://icon.svg" id="5_gqtl5"]
+[ext_resource type="Texture2D" uid="uid://da74n2ld7sa1t" path="res://Elias/Assets/Logo.png" id="5_ri4j6"]
 
 [sub_resource type="Environment" id="Environment_i53wi"]
 background_color = Color(0, 1, 0.833333, 1)
@@ -19,6 +19,43 @@ size = Vector3(5.11823, 1, 7.05066)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lbioy"]
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_8hmfb"]
+resource_name = "Fade"
+length = 1.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.1, 1.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c5jlt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_edfyt"]
+_data = {
+"Fade": SubResource("Animation_8hmfb"),
+"RESET": SubResource("Animation_c5jlt")
+}
 
 [node name="Start" type="Node3D"]
 
@@ -99,13 +136,18 @@ material = SubResource("StandardMaterial3D_lbioy")
 transform = Transform3D(0.0446204, 0, 0, 0, 0.0751337, 0, 0, 0, 1, 0, 0, 7.13173)
 
 [node name="CoolThingy" type="Control" parent="CoolIntermissionCamera/Camera3D"]
-visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CoolIntermissionCamera/Camera3D/CoolThingy"]
+libraries = {
+"": SubResource("AnimationLibrary_edfyt")
+}
 
 [node name="TextureRect" type="TextureRect" parent="CoolIntermissionCamera/Camera3D/CoolThingy"]
 layout_mode = 1
@@ -114,13 +156,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -157.0
-offset_top = -156.0
-offset_right = 157.0
-offset_bottom = 156.0
+offset_left = -225.0
+offset_top = -100.5
+offset_right = 225.0
+offset_bottom = 100.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_gqtl5")
+texture = ExtResource("5_ri4j6")
+stretch_mode = 2
 
 [connection signal="area_entered" from="Touchable" to="Touchable" method="_on_area_entered"]
 [connection signal="timeout" from="Touchable/Timer" to="Touchable" method="_on_timer_timeout"]

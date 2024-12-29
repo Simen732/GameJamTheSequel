@@ -21,10 +21,11 @@ func _on_area_entered(area: Area3D) -> void:
 
 
 func _on_timer_timeout() -> void:
-	character_body_3d.get_child(1).current = false
+	$"../CoolIntermissionCamera/Camera3D/CoolThingy/AnimationPlayer".play("Fade")
 	$"../CoolIntermissionCamera/Camera3D".current = true
+	character_body_3d.get_child(1).current = false
 	$"../CoolIntermissionCamera/Camera3D/CoolThingy".visible = true
-	timer_2.wait_time = 1.75
+	timer_2.wait_time = 1.85
 	timer_2.one_shot = true
 	timer_2.start()
 
