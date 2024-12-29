@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4pc1g3efiicr"]
+
+[sub_resource type="Environment" id="Environment_odw8d"]
+fog_enabled = true
+volumetric_fog_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_odw8d")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0776367)
+size = Vector3(2, 2, 1.84473)
