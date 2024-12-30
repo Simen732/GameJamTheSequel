@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://Scripts/Extra/touchable.gd" id="14_harnf"]
 [ext_resource type="Texture2D" uid="uid://bvpi7gl284u8f" path="res://Assets/Images/Logo.png" id="15_bt3d5"]
 [ext_resource type="PackedScene" uid="uid://baq3obtjm7q7h" path="res://Scenes/Under_Scenes/miner_helmet.tscn" id="16_dihxi"]
-[ext_resource type="PackedScene" path="res://Scenes/enemy.tscn" id="17_8bke1"]
+[ext_resource type="PackedScene" uid="uid://bjemucts6sgwi" path="res://Scenes/enemy.tscn" id="17_8bke1"]
 [ext_resource type="FontFile" uid="uid://1fkngn26o7r1" path="res://Assets/Playpen_Sans/static/PlaypenSans-Bold.ttf" id="18_n6oe2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dc16e"]
@@ -186,6 +186,8 @@ size = Vector3(1.28321, 6.79613, 6.13942)
 
 [node name="Play" type="Node3D"]
 script = ExtResource("1_morjy")
+
+[node name="BG-Music" type="AudioStreamPlayer3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hpmpe")
@@ -378,7 +380,7 @@ transform = Transform3D(-0.742409, 0, 0.669947, 0, 1, 0, -0.669947, 0, -0.742409
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7935, -9.0626, -31.5404)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathBarrier"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6907, 0, -17.9513)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6907, -15.5159, -17.9513)
 shape = SubResource("BoxShape3D_dy4gw")
 
 [node name="Control" type="Control" parent="."]
