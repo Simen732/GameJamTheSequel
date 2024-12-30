@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("OpenControls"):
+	if event.is_action_pressed("openControls"):
 		$ControlsList.visible = !$ControlsList.visible
 
 func enableControlListItem(item: String):
