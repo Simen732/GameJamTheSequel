@@ -7,45 +7,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cfh4"]
 size = Vector3(3.59778, 2.29773, 0.926827)
 
-[sub_resource type="Animation" id="Animation_mwg4x"]
-resource_name = "attack"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0.766218, 1.70109), Vector3(0, 0.766218, 2.26013), Vector3(0, 0.766218, 2.26013), Vector3(0, 0.766218, 1.66966)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpiderAttackBox:shape:size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(3.59778, 2.29773, 0.926827), Vector3(3.59778, 2.29773, 2.95377), Vector3(3.59778, 2.29773, 2.95377), Vector3(3.59778, 2.29773, 0.686358)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpiderAttackBox:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.283264, -0.153168, -1.26564), Vector3(0.283264, -0.153168, -1.26564), Vector3(0.283264, -0.153168, -0.290015), Vector3(0.283264, -0.153168, -1.02112)]
-}
-
 [sub_resource type="Animation" id="Animation_w147e"]
 length = 0.001
 tracks/0/type = "value"
@@ -85,6 +46,45 @@ tracks/2/keys = {
 "values": [Vector3(0.283264, -0.153168, -1.26564)]
 }
 
+[sub_resource type="Animation" id="Animation_mwg4x"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.766218, 1.70109), Vector3(0, 0.766218, 2.26013), Vector3(0, 0.766218, 2.26013), Vector3(0, 0.766218, 1.66966)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpiderAttackBox:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(3.59778, 2.29773, 0.926827), Vector3(3.59778, 2.29773, 2.95377), Vector3(3.59778, 2.29773, 2.95377), Vector3(3.59778, 2.29773, 0.686358)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpiderAttackBox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.283264, -0.153168, -1.26564), Vector3(0.283264, -0.153168, -1.26564), Vector3(0.283264, -0.153168, -0.290015), Vector3(0.283264, -0.153168, -1.02112)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gvlpi"]
 _data = {
 "RESET": SubResource("Animation_w147e"),
@@ -105,7 +105,6 @@ metadata/Hp = 2
 
 [node name="Skeleton3D" parent="SpiderModel/RootNode/SpiderArmature" index="0"]
 bones/0/rotation = Quaternion(0.707107, 1.68587e-07, 1.68587e-07, 0.707107)
-bones/0/scale = Vector3(1, 1, 1)
 bones/1/position = Vector3(2.06329e-05, 0.0152116, -0.000679071)
 bones/1/rotation = Quaternion(0.00363035, -0.000148837, 0.0372757, 0.999299)
 bones/2/rotation = Quaternion(0.437419, 0.132967, -0.545188, 0.702677)
@@ -159,7 +158,6 @@ bones/47/position = Vector3(0.0283818, 0.000175516, -0.010884)
 bones/47/rotation = Quaternion(-0.595022, -0.311758, -0.45301, 0.586121)
 bones/51/position = Vector3(-0.0167572, 0.000278159, 0.0263336)
 bones/51/rotation = Quaternion(-0.0714608, 0.681483, 0.724377, 0.0758455)
-bones/51/scale = Vector3(1, 1, 1)
 bones/53/position = Vector3(-0.026157, 0.000243329, 0.0177631)
 bones/53/rotation = Quaternion(-0.22201, 0.640748, 0.69321, 0.244158)
 bones/53/scale = Vector3(1, 1, 1)

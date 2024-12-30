@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkik1hb6x4ijf"]
+
+[ext_resource type="PackedScene" uid="uid://d2kulti7yv6ju" path="res://Models/Items/Boots.glb" id="1_ne4r0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d75ik"]
+radius = 1.3056
+
+[node name="WallrunUnlock" type="Node3D"]
+
+[node name="Boots" parent="." instance=ExtResource("1_ne4r0")]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_d75ik")
