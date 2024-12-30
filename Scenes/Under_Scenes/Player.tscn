@@ -1,12 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://liq5gjvkx1s8"]
+[gd_scene load_steps=19 format=3 uid="uid://liq5gjvkx1s8"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_5mijh"]
+[ext_resource type="AudioStream" uid="uid://bs3qn2r4ddgqf" path="res://Assets/Audio/Walk1.mp3" id="2_1stu5"]
 [ext_resource type="PackedScene" uid="uid://b8svjucl356sv" path="res://Scenes/Under_Scenes/helmet_light.tscn" id="2_gg4o2"]
 [ext_resource type="Script" path="res://Scripts/Item/helmetMovin.gd" id="2_ytvpk"]
+[ext_resource type="AudioStream" uid="uid://cyqoiij2qn2tj" path="res://Assets/Audio/Walk2.mp3" id="3_ov5it"]
+[ext_resource type="AudioStream" uid="uid://uwd0wf8yemoq" path="res://Assets/Audio/Walk3.mp3" id="4_r21bi"]
 [ext_resource type="PackedScene" uid="uid://b53o5wi70bhdt" path="res://Scenes/Under_Scenes/grappling-hook.tscn" id="5_abxi5"]
 [ext_resource type="PackedScene" uid="uid://dpoukh6umfqtt" path="res://Scenes/UI_Scenes/control.tscn" id="5_twti1"]
+[ext_resource type="AudioStream" uid="uid://exduq0a8d85o" path="res://Assets/Audio/Walk4.mp3" id="5_vcd2v"]
 [ext_resource type="PackedScene" uid="uid://3vmnyf38weq" path="res://Scenes/Under_Scenes/pickaxe.tscn" id="5_vnccm"]
+[ext_resource type="AudioStream" uid="uid://q2o1ab04s2lb" path="res://Assets/Audio/Walk5.mp3" id="6_i507f"]
 [ext_resource type="PackedScene" uid="uid://wmkr3if58oo6" path="res://Scenes/Under_Scenes/brush.tscn" id="6_wyb8h"]
+[ext_resource type="AudioStream" uid="uid://bkan7d6wx5wxc" path="res://Assets/Audio/Walk6.mp3" id="7_bqpj5"]
+[ext_resource type="AudioStream" uid="uid://o0cajjv1ttxx" path="res://Assets/Audio/Walk7.mp3" id="8_ek76k"]
+[ext_resource type="AudioStream" uid="uid://cusp8onklcjdo" path="res://Assets/Audio/Walk8.mp3" id="9_nssh3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xcuja"]
 
@@ -16,6 +24,38 @@
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_5mijh")
+
+[node name="Walk" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.511146, -0.03288, -0.483702)
+stream = ExtResource("2_1stu5")
+
+[node name="Walk2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.511146, -0.03288, -0.483702)
+stream = ExtResource("3_ov5it")
+
+[node name="Walk3" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.511146, -0.03288, -0.483702)
+stream = ExtResource("4_r21bi")
+
+[node name="Walk4" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.511146, -0.03288, -0.483702)
+stream = ExtResource("5_vcd2v")
+
+[node name="Walk5" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.511146, -0.03288, -0.483702)
+stream = ExtResource("6_i507f")
+
+[node name="Walk6" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.511146, -0.03288, -0.483702)
+stream = ExtResource("7_bqpj5")
+
+[node name="Walk7" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.511146, -0.03288, -0.483702)
+stream = ExtResource("8_ek76k")
+
+[node name="Walk8" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.511146, -0.03288, -0.483702)
+stream = ExtResource("9_nssh3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_xcuja")

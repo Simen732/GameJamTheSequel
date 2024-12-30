@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://Scripts/Extra/touchable.gd" id="14_harnf"]
 [ext_resource type="Texture2D" uid="uid://bvpi7gl284u8f" path="res://Assets/Images/Logo.png" id="15_bt3d5"]
 [ext_resource type="PackedScene" uid="uid://baq3obtjm7q7h" path="res://Scenes/Under_Scenes/miner_helmet.tscn" id="16_dihxi"]
-[ext_resource type="PackedScene" uid="uid://cyhsgrgwio0qb" path="res://Scenes/enemy.tscn" id="17_8bke1"]
+[ext_resource type="PackedScene" path="res://Scenes/enemy.tscn" id="17_8bke1"]
 [ext_resource type="FontFile" uid="uid://1fkngn26o7r1" path="res://Assets/Playpen_Sans/static/PlaypenSans-Bold.ttf" id="18_n6oe2"]
 [ext_resource type="PackedScene" uid="uid://8ke1toayo6w" path="res://Scenes/Under_Scenes/pickaxe_unlock.tscn" id="19_hxt3c"]
 
