@@ -13,6 +13,8 @@ signal openMenu
 signal closeMenu
 signal playerDead
 
+var IsConnected = false
+
 var menu_open := false
 
 var PlayerHP = 5

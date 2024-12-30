@@ -66,7 +66,7 @@ func _physics_process(delta: float) -> void:
 		print("Denne funker")
 	
 	# Handle Dash
-	if Input.is_action_just_pressed("Dash") and !dashing:
+	if Input.is_action_just_pressed("Dash") and !dashing && is_on_floor():
 		dashing = true
 		dashTimer = dashDuration/2  # Reset dash timer to start the dash
 		
