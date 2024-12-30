@@ -191,5 +191,6 @@ shape = SubResource("BoxShape3D_ux7d4")
 [node name="BreakableWallScript" parent="." instance=ExtResource("3_h31gv")]
 
 [connection signal="area_entered" from="SpiderAttackArea" to="." method="_on_spider_attack_area_area_entered"]
+[connection signal="animation_finished" from="SpiderAttackArea/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
 [editable path="SpiderModel"]

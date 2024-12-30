@@ -1,23 +1,18 @@
 extends Control
 
+@onready var connection_checker = preload("res://Scripts/connection_checker.gd").new()
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	add_child(connection_checker)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
 
 func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/play.tscn")
 
-
 func _on_options_button_pressed() -> void:
-	pass # Replace with function body.
-
+	pass
 
 func _on_close_button_pressed() -> void:
 	get_tree().quit()

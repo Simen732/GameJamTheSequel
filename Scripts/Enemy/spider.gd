@@ -3,13 +3,17 @@ extends CharacterBody3D
 const SPEED = 2.5
 const JUMP_VELOCITY = 4.5
 const DETECTION_RANGE = 30.0
-const ROTATION_SPEED = 10.0  # Adjust this to control turning speed
-const ATTACK_RANGE = 3  # Distance at which the spider stops and attacks
+const ROTATION_SPEED = 10.0
+const ATTACK_RANGE = 3
+const ATTACK_COOLDOWN = 0.5  # Added cooldown constant
 
 @onready var animation_player2: AnimationPlayer = $SpiderAttackArea/AnimationPlayer
 @onready var animation_player: AnimationPlayer = $SpiderModel/AnimationPlayer
+
 var player: Node3D = null
 var is_attacking: bool = false
+var can_attack: bool = true
+var attack_timer: float = 0.0
 
 func _ready() -> void:
 	player = $"../Player"
@@ -17,6 +21,13 @@ func _ready() -> void:
 		push_warning("Player node not found!")
 
 func _physics_process(delta: float) -> void:
+	# Handle attack cooldown
+	if not can_attack:
+		attack_timer += delta
+		if attack_timer >= ATTACK_COOLDOWN:
+			can_attack = true
+			attack_timer = 0.0
+
 	# Add gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -52,10 +63,8 @@ func _physics_process(delta: float) -> void:
 	if distance_to_player <= ATTACK_RANGE:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		if not is_attacking:
-			is_attacking = true
-			play_animation("SpiderArmature|Spider_Attack")
-			animation_player2.play("attack")
+		if can_attack and not is_attacking:
+			start_attack()
 		return
 	
 	# If not attacking and no floor ahead, stop
@@ -72,6 +81,21 @@ func _physics_process(delta: float) -> void:
 	play_animation("SpiderArmature|Spider_Walk")
 	
 	move_and_slide()
+
+func start_attack() -> void:
+	is_attacking = true
+	can_attack = false
+	play_animation("SpiderArmature|Spider_Attack")
+	animation_player2.play("attack")
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	print("IDK")
+	if anim_name == "SpiderArmature|Spider_Attack":
+		is_attacking = false
+		# If player is still in range, start another attack when cooldown is done
+		if player and global_position.distance_to(player.global_position) <= ATTACK_RANGE:
+			if can_attack:
+				start_attack()
 
 func has_line_of_sight() -> bool:
 	if not player:
