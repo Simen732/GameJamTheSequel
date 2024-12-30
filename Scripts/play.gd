@@ -1,7 +1,6 @@
 extends Node3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player: CharacterBody3D = $Player
-@onready var bg_music: AudioStreamPlayer3D = $"BG-Music"
 @onready var original_spawn: CollisionShape3D = $Area3D/OriginalSpawn
 @onready var kreft: CollisionShape3D = $Area3D2/kreft
 @onready var kreft_2: CollisionShape3D = $Area3D3/kreft2
@@ -13,9 +12,7 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.playerDead.connect(on_playerDead)
-	bg_music.play()
 	$MapGameJam/Cylinder.visible = false
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -48,7 +45,3 @@ func _on_room_1_spawn_point_area_entered(area: Area3D) -> void:
 	Global.stages.room1 = true
 	Global.stages.pyramid = false
 	print(Global.stages)
-
-
-func _on_bg_music_finished() -> void:
-	bg_music.play()
