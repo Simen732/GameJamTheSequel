@@ -6,8 +6,18 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_0pr3i"]
 size = Vector3(3, 2, 4)
 
-[node name="Enemy" type="Node3D"]
+[node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_elb1m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.300381, 1.20655, 0.678369)
+shape = SubResource("BoxShape3D_0pr3i")
+
+[node name="hitboxArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitboxArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.300381, 1.20655, 0.678369)
+shape = SubResource("BoxShape3D_0pr3i")
 
 [node name="Root Scene" parent="." instance=ExtResource("2_spt58")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.252438, 1.19209e-07, 0.778501)
@@ -18,13 +28,13 @@ bones/2/rotation = Quaternion(0.435203, 0.143057, -0.54462, 0.702511)
 bones/3/rotation = Quaternion(0.504119, -0.0323465, 0.125994, 0.853782)
 bones/4/rotation = Quaternion(0.0487415, 0.156117, 0.10126, 0.981325)
 bones/6/rotation = Quaternion(0.168695, 0.382333, -0.523704, 0.74236)
-bones/7/rotation = Quaternion(0.727098, 0.0260228, 0.0710385, 0.682353)
+bones/7/rotation = Quaternion(0.727098, 0.0260228, 0.0710386, 0.682353)
 bones/8/rotation = Quaternion(0.06222, 0.232192, 0.164118, 0.956703)
-bones/10/rotation = Quaternion(-0.164377, 0.401615, -0.545466, 0.717045)
+bones/10/rotation = Quaternion(-0.164377, 0.401614, -0.545466, 0.717045)
 bones/11/rotation = Quaternion(0.384664, 0.879728, -0.106991, 0.258195)
 bones/12/rotation = Quaternion(-0.105431, 0.470396, 0.31605, 0.817144)
 bones/14/rotation = Quaternion(-0.234525, 0.212709, -0.420359, 0.850324)
-bones/15/rotation = Quaternion(0.577509, 0.685229, -0.202339, 0.394973)
+bones/15/rotation = Quaternion(0.577508, 0.685229, -0.202339, 0.394973)
 bones/16/rotation = Quaternion(0.160451, 0.417429, 0.291683, 0.845535)
 bones/18/rotation = Quaternion(0.491403, -0.138915, 0.183296, 0.840017)
 bones/19/rotation = Quaternion(0.403417, -0.350957, -0.0829119, 0.840958)
@@ -39,28 +49,15 @@ bones/30/rotation = Quaternion(-0.301209, 0.447436, 0.256667, 0.801995)
 bones/31/rotation = Quaternion(-0.548627, -0.0991199, 0.201275, 0.805402)
 bones/32/rotation = Quaternion(-0.311721, 0.578337, -0.0936009, 0.748061)
 bones/34/rotation = Quaternion(-0.704907, 0.00320548, 0.00287906, 0.709286)
-bones/37/rotation = Quaternion(0.237271, -0.000285911, 0.000387882, 0.971444)
+bones/37/rotation = Quaternion(0.23727, -0.000285911, 0.000387881, 0.971444)
 bones/41/position = Vector3(0.0169032, 0.00024694, 0.0263525)
+bones/41/rotation = Quaternion(0.071347, 0.681471, 0.724388, -0.0759515)
 bones/43/position = Vector3(0.0261568, 0.00024694, 0.0177159)
 bones/45/position = Vector3(0.020356, 0.000199187, -0.0220139)
 bones/47/position = Vector3(0.0283818, 0.000175516, -0.010884)
 bones/51/position = Vector3(-0.0168656, 0.000246941, 0.0263525)
+bones/51/rotation = Quaternion(-0.0714608, 0.681483, 0.724377, 0.0758455)
 bones/53/position = Vector3(-0.0261193, 0.000246941, 0.0177159)
-bones/55/rotation = Quaternion(-0.727625, 0.38, -0.0197628, 0.570764)
 bones/57/position = Vector3(-0.0283443, 0.000175517, -0.010884)
-
-[node name="hitboxArea" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="hitboxArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.300381, 1.20655, 0.678369)
-shape = SubResource("BoxShape3D_0pr3i")
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.300381, 1.20655, 0.678369)
-shape = SubResource("BoxShape3D_0pr3i")
-
-[connection signal="animation_finished" from="Root Scene/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
 [editable path="Root Scene"]

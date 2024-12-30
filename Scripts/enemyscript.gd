@@ -1,10 +1,10 @@
-extends Node3D
+extends CharacterBody3D
 
-@export var speed: float = 5.0 
-var enemyHealth = 2
+@export var speed: float = 2.0 
+var enemyHealth = 4
 @onready var hitbox_area: Area3D = $hitboxArea
 @onready var animation_player: AnimationPlayer = $"Root Scene/AnimationPlayer"
-
+@export var detection_range: float = 5.0  # Adjust this value for the range within which the enemy moves towards the player
 var player: Node3D
 
 func _ready():
@@ -18,7 +18,9 @@ func _physics_process(delta: float):
 func move_towards_player(delta: float):
 	var direction = (player.global_transform.origin - global_transform.origin).normalized()
 	var distance_to_player = global_transform.origin.distance_to(player.global_transform.origin)
-	
+	# Move only if within detection range
+	if distance_to_player <= detection_range:
+		translate(direction * speed * delta)
 	
 func on_PickaxeDamageWall(area) -> void:
 	if area == self.hitbox_area:
