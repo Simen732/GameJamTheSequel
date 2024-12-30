@@ -8,9 +8,7 @@ var enemyHealth = 2
 var player: Node3D
 
 func _ready():
-	player = get_node_or_null("/Player")
-	if hitbox_area.get_parent().get_meta("Hp"):
-		enemyHealth = hitbox_area.get_parent().get_meta("Hp")
+	player = get_node_or_null("../Player")
 	Global.PickaxeDamageWall.connect(on_PickaxeDamageWall)
 
 func _physics_process(delta: float):
@@ -18,9 +16,10 @@ func _physics_process(delta: float):
 		move_towards_player(delta)
 
 func move_towards_player(delta: float):
-
 	var direction = (player.global_transform.origin - global_transform.origin).normalized()
 	var distance_to_player = global_transform.origin.distance_to(player.global_transform.origin)
+	
+	
 func on_PickaxeDamageWall(area) -> void:
 	if area == self.hitbox_area:
 		enemyHealth -= 1
