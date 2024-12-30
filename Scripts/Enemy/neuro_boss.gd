@@ -14,72 +14,11 @@ var player: Node3D = null
 var is_attacking: bool = false
 var can_attack: bool = true
 var attack_timer: float = 0.0
-var action_window: ActionWindow = null
-
-class AttackAction extends NeuroAction:
-	func _get_name() -> String:
-		return "attack"
-		
-	func _get_description() -> String:
-		return "Attack the player if they are in range"
-		
-	func _get_schema() -> Dictionary:
-		return {}
-		
-	func _validate_action(_data: IncomingData, _state: Dictionary) -> ExecutionResult:
-		var boss = self
-		if not boss.can_attack:
-			return ExecutionResult.failure("Cannot attack yet - on cooldown")
-		if not boss.player:
-			return ExecutionResult.failure("No player found to attack")
-		if boss.global_position.distance_to(boss.player.global_position) > boss.ATTACK_RANGE:
-			return ExecutionResult.failure("Player is too far away to attack")
-		return ExecutionResult.success()
-		
-	func _execute_action(_state: Dictionary) -> void:
-		var boss = self
-		boss.start_attack()
-
-class MoveToPlayerAction extends NeuroAction:
-	func _get_name() -> String:
-		return "move_to_player"
-		
-	func _get_description() -> String:
-		return "Move closer to the player"
-		
-	func _get_schema() -> Dictionary:
-		return {}
-		
-	func _validate_action(_data: IncomingData, _state: Dictionary) -> ExecutionResult:
-		var boss = self
-		if not boss.player:
-			return ExecutionResult.failure("No player found to move to")
-		if not boss.has_line_of_sight():
-			return ExecutionResult.failure("No line of sight to player")
-		if boss.global_position.distance_to(boss.player.global_position) <= boss.ATTACK_RANGE:
-			return ExecutionResult.failure("Already in attack range")
-		return ExecutionResult.success()
-		
-	func _execute_action(_state: Dictionary) -> void:
-		pass
 
 func _ready() -> void:
 	player = $"../Player"
 	if not player:
 		push_warning("Player node not found!")
-	
-	if Global.IsConnected:
-		setup_neuro_integration()
-
-func setup_neuro_integration() -> void:
-	# CHANGE THIS TO YOUR GAME NAME
-	NeuroSdkConfig.game = "Your Game Name Here"
-	
-	action_window = ActionWindow.new(self)
-	action_window.add_action(AttackAction.new(action_window))
-	action_window.add_action(MoveToPlayerAction.new(action_window))
-	action_window.set_force(5.0, "You are a boss fighting the player. Choose whether to attack or move closer.", "")
-	action_window.register()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

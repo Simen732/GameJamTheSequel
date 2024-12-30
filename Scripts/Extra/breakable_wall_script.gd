@@ -21,6 +21,8 @@ func on_PickaxeDamageWall(area) -> void:
 		wallHealth -= 1
 		print(wallHealth, area)
 		if wallHealth < 1:
+			if self.get_parent().name == "NeuroBoss":
+				get_tree().change_scene_to_file("res://CREDITS/GodotCredits.tscn")
 			Global.PlayerHP = 5
 			hitbox_area.get_parent().queue_free()
 			print(hitbox_area.get_parent())

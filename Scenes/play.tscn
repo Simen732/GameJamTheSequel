@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://freo4misrtj7"]
+[gd_scene load_steps=37 format=4 uid="uid://freo4misrtj7"]
 
 [ext_resource type="Script" path="res://Scripts/play.gd" id="1_morjy"]
 [ext_resource type="PackedScene" uid="uid://c07sjg3q23gno" path="res://Models/Decorations/MapGameJam.glb" id="1_tfok1"]
@@ -7,16 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://mtjd1p5ym8c1" path="res://Models/Decorations/RiddleSign.glb" id="4_iu5lq"]
 [ext_resource type="PackedScene" uid="uid://bkbqqmxyhj72l" path="res://Scenes/Under_Scenes/camp_fire.tscn" id="12_7v4tr"]
 [ext_resource type="PackedScene" uid="uid://cquh6apa5jac0" path="res://Scenes/Under_Scenes/torch.tscn" id="13_ehgp7"]
-[ext_resource type="PackedScene" path="res://Scenes/Under_Scenes/pickaxe_unlock.tscn" id="13_ju133"]
+[ext_resource type="PackedScene" uid="uid://8ke1toayo6w" path="res://Scenes/Under_Scenes/pickaxe_unlock.tscn" id="13_ju133"]
 [ext_resource type="Script" path="res://Scripts/Extra/touchable.gd" id="14_harnf"]
 [ext_resource type="AudioStream" uid="uid://b6ejmkj2jl51y" path="res://Assets/Audio/Egyptian music [VgHOPMoaIvk].mp3" id="15_5wug6"]
 [ext_resource type="Texture2D" uid="uid://bvpi7gl284u8f" path="res://Assets/Images/Logo.png" id="15_bt3d5"]
-[ext_resource type="PackedScene" path="res://Scenes/Under_Scenes/wallrun_unlock.tscn" id="15_eyfxn"]
+[ext_resource type="PackedScene" uid="uid://bkik1hb6x4ijf" path="res://Scenes/Under_Scenes/wallrun_unlock.tscn" id="15_eyfxn"]
 [ext_resource type="PackedScene" uid="uid://baq3obtjm7q7h" path="res://Scenes/Under_Scenes/miner_helmet.tscn" id="16_dihxi"]
-[ext_resource type="PackedScene" path="res://Scenes/Under_Scenes/grappling_hook_unlock.tscn" id="16_ts6em"]
+[ext_resource type="PackedScene" uid="uid://bhyq2abplwxl" path="res://Scenes/Under_Scenes/grappling_hook_unlock.tscn" id="16_ts6em"]
+[ext_resource type="AudioStream" uid="uid://kr0ki6ebbaac" path="res://Assets/Audio/BoosssMusssic.mp3" id="16_udr3t"]
 [ext_resource type="PackedScene" uid="uid://bqyacodriqysf" path="res://Scenes/Under_Scenes/spider.tscn" id="17_8bke1"]
 [ext_resource type="FontFile" uid="uid://1fkngn26o7r1" path="res://Assets/Playpen_Sans/static/PlaypenSans-Bold.ttf" id="18_n6oe2"]
-[ext_resource type="PackedScene" uid="uid://b38xbgpl3bwkq" path="res://Scenes/Under_Scenes/anubis.tscn" id="20_tsusu"]
+[ext_resource type="PackedScene" uid="uid://07bnhutuervr" path="res://Scenes/neuro_boss.tscn" id="18_wog3a"]
+[ext_resource type="PackedScene" path="res://Scenes/Under_Scenes/anubis.tscn" id="20_tsusu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dc16e"]
 
@@ -210,7 +212,7 @@ lod_bias = 0.001
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 1.15311, -5.96046e-08, -30.1942)
 
 [node name="Player" parent="." instance=ExtResource("2_sf7p0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.529667, 48.2814, 35.09)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60853, 49.4452, 45.6275)
 
 [node name="Entrance" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 49.2019, 16.1864)
@@ -536,19 +538,30 @@ transform = Transform3D(0.999998, 0, -0.00258303, 0, 1, 0, 0.00258303, 0, 0.9999
 transform = Transform3D(0.316447, 0, 0.387119, 0, 0.5, 0, -0.387119, 0, 0.316447, -47.3423, -7.78521, -55.5019)
 
 [node name="Spider2" parent="." instance=ExtResource("17_8bke1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4126, 8, -71.4998)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 37.4126, 8, -71.4998)
 
 [node name="Spider3" parent="." instance=ExtResource("17_8bke1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7743, 8, -46.3046)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 37.7743, 8, -45.6033)
+
+[node name="Spider4" parent="." instance=ExtResource("17_8bke1")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 37.7743, 8, -60.1761)
 
 [node name="PickaxeUnlock" parent="." instance=ExtResource("13_ju133")]
 transform = Transform3D(0.784669, 0.618943, -0.0347175, -0.608649, 0.75857, -0.232634, -0.117651, 0.203671, 0.971945, 7.7899, 0.0281945, 1.47021)
 
 [node name="BG-Music" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.792375, 0.610035, 0, -0.610035, 0.792375, 0, 17.4917, -133.593)
 stream = ExtResource("15_5wug6")
 attenuation_model = 3
 volume_db = -10.0
 autoplay = true
+parameters/looping = true
+
+[node name="BossMusic" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.792375, 0.610035, 0, -0.610035, 0.792375, 0, 76.2396, 75.9299)
+stream = ExtResource("16_udr3t")
+attenuation_model = 3
+volume_db = -10.0
 parameters/looping = true
 
 [node name="WallrunUnlock" parent="." instance=ExtResource("15_eyfxn")]
@@ -559,6 +572,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.2674, 9.28746, -57.8811)
 
 [node name="Torch4" parent="." instance=ExtResource("13_ehgp7")]
 transform = Transform3D(0.0293348, 0, -0.99957, 0, 1, 0, 0.99957, 0, 0.0293348, 53.7837, 12.0269, -58.3148)
+
+[node name="NeuroBoss" parent="." instance=ExtResource("18_wog3a")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0893402, 12.8, -129.012)
 
 [connection signal="area_entered" from="Entrance/LoadIntro" to="Entrance/LoadIntro" method="_on_area_entered"]
 [connection signal="timeout" from="Entrance/LoadIntro/CoolView/Timer" to="Entrance/LoadIntro" method="_on_timer_timeout"]

@@ -1,9 +1,6 @@
 extends Control
-
-@onready var connection_checker = preload("res://Scripts/connection_checker.gd").new()
-
 func _ready() -> void:
-	add_child(connection_checker)
+	pass
 
 func _process(delta: float) -> void:
 	pass

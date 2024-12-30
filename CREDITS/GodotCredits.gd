@@ -15,7 +15,7 @@ extends Control
 const section_time := 2.5  # Time before moving to the next section
 const line_time := 1.2   # Time for each regular line
 const title_extra_delay := 1.0  # Extra delay for titles
-const base_speed := 80      # Speed of scrolling
+const base_speed := 240      # Speed of scrolling
 const speed_up_multiplier := 10.0
 
 
@@ -40,7 +40,8 @@ var lines := []
 
 var credits = [
 	[
-		"A game"
+		"Treasures Of The Sands (Prototype)",
+		"This is our first game. Enjoy."
 	],[
 		"Programming",
 		"Elias Neerbye",
@@ -52,10 +53,11 @@ var credits = [
 		"Lukasz Brzozowski"
 	],[
 		"Music",
-		"Loreena Mckennit"
+		"Loreena Mckennit",
+		"Suno AI"
 	],[
 		"Sound Effects",
-		"SFX Name"
+		"Pixabay & Various other free platforms"
 	],[
 		"Testers",
 		"Ask Johansen",
@@ -72,9 +74,9 @@ var credits = [
 		"https://www.adobe.com/legal/terms.html"
 	],[
 		"Special thanks",
-		"My dog",
-		"My cat",
-		"My pet rabbit"
+		"Free Content",
+		"Good Friends",
+		"Crazy Teamwork"
 	]
 ]
 
