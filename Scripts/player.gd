@@ -8,6 +8,7 @@ const LOOK_LIMIT_DOWN = 80
 
 @onready var pickaxe: Node3D = $Camera3D/Pickaxe
 @onready var camera = $Camera3D
+@onready var walk: AudioStreamPlayer3D = $Walk
 
 var dashSpeed = 5
 var jumpCount = 2
@@ -35,6 +36,9 @@ func _physics_process(delta: float) -> void:
 	# Get movement input and handle player movement
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	if direction:
+		walk.play()
 
 	# Add gravity if not on the floor
 	if not is_on_floor():

@@ -19,6 +19,7 @@ offset_left = 10.0
 offset_top = 14.0
 offset_right = 106.0
 offset_bottom = 30.0
+scale = Vector2(4.12, 4.12)
 
 [node name="Heart" type="TextureRect" parent="HeartContainer"]
 layout_mode = 2
@@ -50,11 +51,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -159.0
-offset_top = 4.0
-offset_right = -6.0
-offset_bottom = 29.0
+offset_left = -410.0
+offset_top = 9.0
+offset_right = -257.0
+offset_bottom = 34.0
 grow_horizontal = 0
+scale = Vector2(2.56, 2.56)
 theme_override_fonts/font = ExtResource("2_41quu")
 text = "Toggle Controls (X)"
 
@@ -63,15 +65,16 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -138.0
-offset_top = 28.0
-offset_right = -7.0
-offset_bottom = 48.0
+offset_left = -379.0
+offset_top = 84.0
+offset_right = -248.0
+offset_bottom = 224.0
 grow_horizontal = 0
+scale = Vector2(2.76, 2.76)
+theme_override_constants/separation = 0
 
 [node name="Dash" type="HBoxContainer" parent="ControlsList"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/separation = 30
 
 [node name="Dash" type="Label" parent="ControlsList/Dash"]
@@ -93,7 +96,6 @@ vertical_alignment = 1
 
 [node name="Brush" type="HBoxContainer" parent="ControlsList"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/separation = 30
 
 [node name="Brush" type="Label" parent="ControlsList/Brush"]
@@ -115,7 +117,6 @@ vertical_alignment = 1
 
 [node name="Pickaxe" type="HBoxContainer" parent="ControlsList"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/separation = 30
 
 [node name="Pickaxe" type="Label" parent="ControlsList/Pickaxe"]
@@ -137,7 +138,6 @@ vertical_alignment = 1
 
 [node name="Light" type="HBoxContainer" parent="ControlsList"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/separation = 30
 
 [node name="Light" type="Label" parent="ControlsList/Light"]
@@ -159,7 +159,6 @@ vertical_alignment = 1
 
 [node name="Teleport" type="HBoxContainer" parent="ControlsList"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/separation = 30
 
 [node name="Teleport" type="Label" parent="ControlsList/Teleport"]
@@ -181,7 +180,6 @@ vertical_alignment = 1
 
 [node name="Grappling Hook" type="HBoxContainer" parent="ControlsList"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/separation = 30
 
 [node name="Grappling Hook" type="Label" parent="ControlsList/Grappling Hook"]

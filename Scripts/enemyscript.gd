@@ -1,0 +1,34 @@
+extends Node3D
+
+@export var speed: float = 5.0 
+var enemyHealth = 2
+@onready var hitbox_area: Area3D = $hitboxArea
+@onready var animation_player: AnimationPlayer = $"Root Scene/AnimationPlayer"
+
+var player: Node3D
+
+func _ready():
+	player = get_node_or_null("../Player")
+	Global.PickaxeDamageWall.connect(on_PickaxeDamageWall)
+
+func _physics_process(delta: float):
+	if player:
+		move_towards_player(delta)
+
+func move_towards_player(delta: float):
+	var direction = (player.global_transform.origin - global_transform.origin).normalized()
+	var distance_to_player = global_transform.origin.distance_to(player.global_transform.origin)
+	
+	
+func on_PickaxeDamageWall(area) -> void:
+	if area == self.hitbox_area:
+		enemyHealth -= 1
+		print(enemyHealth, area)
+		print(enemyHealth < 1)
+		if enemyHealth < 1:
+			animation_player.play("SpiderArmature|Spider_Death")
+			print(hitbox_area.get_parent())
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	hitbox_area.get_parent().queue_free()
