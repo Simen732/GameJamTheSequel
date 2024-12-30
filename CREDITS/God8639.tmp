@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmmk31d282i46"]
+
+[ext_resource type="Script" path="res://CREDITS/GodotCredits.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://freo4misrtj7" path="res://Scenes/play.tscn" id="2_wydkk"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+bg_color = null
+to_scene = ExtResource("2_wydkk")
+title_color = null
+text_color = null
+Use_Video_Audio = null
+title_font_size = null
+text_font_size = null
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 1)
+
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="CreditsContainer" type="Control" parent="."]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Line" type="Label" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 625.0
+offset_bottom = 648.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
