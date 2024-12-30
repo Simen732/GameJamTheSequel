@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpoukh6umfqtt"]
+[gd_scene load_steps=9 format=3 uid="uid://dpoukh6umfqtt"]
 
 [ext_resource type="Texture2D" uid="uid://bgtmalu488h43" path="res://Assets/Images/Crosshair.png" id="1_4tng6"]
 [ext_resource type="Script" path="res://Scripts/UI/control.gd" id="1_pxo3o"]
+[ext_resource type="PackedScene" uid="uid://b27ix62mxfplo" path="res://Scenes/UI_Scenes/gameplay.tscn" id="2_6r273"]
 [ext_resource type="FontFile" uid="uid://1fkngn26o7r1" path="res://Assets/Playpen_Sans/static/PlaypenSans-Bold.ttf" id="3_u5728"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3gpi"]
@@ -69,6 +70,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pxo3o")
+
+[node name="Gameplay" parent="." instance=ExtResource("2_6r273")]
+layout_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
