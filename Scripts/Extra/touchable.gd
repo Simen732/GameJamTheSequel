@@ -18,7 +18,9 @@ func _on_area_entered(area: Area3D) -> void:
 	timer.wait_time = 1.0
 	timer.one_shot = true
 	timer.start()
-
+	Global.stages.pyramid = true
+	print(Global.stages)
+	
 
 func _on_timer_timeout() -> void:
 	animation_player.play("fade")

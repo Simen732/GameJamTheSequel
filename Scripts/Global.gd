@@ -11,6 +11,8 @@ signal LightUnlocked
 
 signal openMenu
 signal closeMenu
+signal playerDead
+
 var menu_open := false
 
 var unlocks := {
