@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://8ke1toayo6w"]
+
+[ext_resource type="PackedScene" uid="uid://djuncit5lq7u8" path="res://Models/Items/Axe_and_Pickaxe (.blend).glb" id="1_0y78v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmakc"]
+albedo_color = Color(0.466667, 0.466667, 0.466667, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58pvs"]
+albedo_color = Color(0.164706, 0, 0.00392157, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vf5s1"]
+
+[node name="PickaxeUnlock" type="Node3D"]
+
+[node name="Axe_and_Pickaxe (_blend)" parent="." instance=ExtResource("1_0y78v")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Cubo_002" parent="Axe_and_Pickaxe (_blend)" index="0"]
+material_override = SubResource("StandardMaterial3D_rmakc")
+
+[node name="Cubo_001" parent="Axe_and_Pickaxe (_blend)" index="1"]
+material_override = SubResource("StandardMaterial3D_58pvs")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.451711, 0.189764)
+shape = SubResource("SphereShape3D_vf5s1")
+
+[editable path="Axe_and_Pickaxe (_blend)"]
