@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b38xbgpl3bwkq"]
+
+[ext_resource type="PackedScene" uid="uid://cfrvoqf2v3lu2" path="res://Models/Decorations/Anubis Statue.glb" id="1_ufeva"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Anubis Statue" parent="." instance=ExtResource("1_ufeva")]
+transform = Transform3D(0.229667, 0, 0, 0, 0.229667, 0, 0, 0, 0.229667, -0.110651, 0.0725914, 0.00621367)
