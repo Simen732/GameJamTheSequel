@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://freo4misrtj7"]
+[gd_scene load_steps=44 format=4 uid="uid://freo4misrtj7"]
 
 [ext_resource type="Script" path="res://Scripts/play.gd" id="1_morjy"]
 [ext_resource type="PackedScene" uid="uid://c07sjg3q23gno" path="res://Models/Decorations/MapGameJam.glb" id="1_tfok1"]
@@ -17,7 +17,9 @@
 [ext_resource type="Script" path="res://Scripts/Extra/touchable.gd" id="14_harnf"]
 [ext_resource type="Texture2D" uid="uid://bvpi7gl284u8f" path="res://Assets/Images/Logo.png" id="15_bt3d5"]
 [ext_resource type="PackedScene" uid="uid://baq3obtjm7q7h" path="res://Scenes/Under_Scenes/miner_helmet.tscn" id="16_dihxi"]
+[ext_resource type="PackedScene" uid="uid://cyhsgrgwio0qb" path="res://Scenes/enemy.tscn" id="17_8bke1"]
 [ext_resource type="FontFile" uid="uid://1fkngn26o7r1" path="res://Assets/Playpen_Sans/static/PlaypenSans-Bold.ttf" id="18_n6oe2"]
+[ext_resource type="PackedScene" uid="uid://8ke1toayo6w" path="res://Scenes/Under_Scenes/pickaxe_unlock.tscn" id="19_hxt3c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dc16e"]
 
@@ -399,6 +401,12 @@ text = "YOU DIED"
 libraries = {
 "": SubResource("AnimationLibrary_s43u6")
 }
+
+[node name="PickaxeUnlock" parent="." instance=ExtResource("19_hxt3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21624, 0, -5.53744)
+
+[node name="Node3D" parent="." instance=ExtResource("17_8bke1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77913, 0, -2.72823)
 
 [connection signal="area_entered" from="Entrance/LoadIntro" to="Entrance/LoadIntro" method="_on_area_entered"]
 [connection signal="timeout" from="Entrance/LoadIntro/CoolView/Timer" to="Entrance/LoadIntro" method="_on_timer_timeout"]

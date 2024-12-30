@@ -1,8 +1,9 @@
 extends Node3D
 
 @export var speed: float = 5.0 
-var enemyHealth = 5
+var enemyHealth = 2
 @onready var hitbox_area: Area3D = $hitboxArea
+@onready var animation_player: AnimationPlayer = $"Root Scene/AnimationPlayer"
 
 var player: Node3D
 
@@ -24,6 +25,11 @@ func on_PickaxeDamageWall(area) -> void:
 	if area == self.hitbox_area:
 		enemyHealth -= 1
 		print(enemyHealth, area)
+		print(enemyHealth < 1)
 		if enemyHealth < 1:
-			hitbox_area.get_parent().queue_free()
+			animation_player.play("SpiderArmature|Spider_Death")
 			print(hitbox_area.get_parent())
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	hitbox_area.get_parent().queue_free()
