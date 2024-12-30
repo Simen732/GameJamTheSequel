@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhyq2abplwxl"]
+
+[ext_resource type="PackedScene" uid="uid://bkiahbotr2bks" path="res://Models/Items/grappling_hook.glb" id="1_275q7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_138pw"]
+radius = 1.1005
+
+[node name="GrapplingHookUnlock" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_275q7")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_138pw")
