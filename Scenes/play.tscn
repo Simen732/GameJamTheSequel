@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://baq3obtjm7q7h" path="res://Scenes/Under_Scenes/miner_helmet.tscn" id="16_dihxi"]
 [ext_resource type="PackedScene" uid="uid://bjemucts6sgwi" path="res://Scenes/enemy.tscn" id="17_8bke1"]
 [ext_resource type="FontFile" uid="uid://1fkngn26o7r1" path="res://Assets/Playpen_Sans/static/PlaypenSans-Bold.ttf" id="18_n6oe2"]
-[ext_resource type="PackedScene" uid="uid://8ke1toayo6w" path="res://Scenes/Under_Scenes/pickaxe_unlock.tscn" id="19_hxt3c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dc16e"]
 
@@ -240,7 +239,7 @@ shape = SubResource("BoxShape3D_07cpl")
 [node name="brushable_object_script" parent="Tests/Brushable" instance=ExtResource("4_xuxl8")]
 
 [node name="PickaxeUnlock" parent="Tests" instance=ExtResource("5_ubixr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1614, -11.3102, -7.03996)
+transform = Transform3D(-1.09278e-08, 0.176777, 0.176777, 0, 0.176777, -0.176777, -0.25, -7.72715e-09, -7.72715e-09, 7.28034, -57.8886, -50.5449)
 
 [node name="Area3D" type="Area3D" parent="Tests/PickaxeUnlock"]
 
@@ -249,7 +248,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 2)
 shape = SubResource("BoxShape3D_r1h2r")
 
 [node name="WallrunUnlock" parent="Tests" instance=ExtResource("6_o4cu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.243, -10.1732, -10.3587)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.4395, -65.4646, -110.645)
 
 [node name="Area3D" type="Area3D" parent="Tests/WallrunUnlock"]
 
@@ -258,7 +257,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_6d4y2")
 
 [node name="BrushUnlock" parent="Tests" instance=ExtResource("7_0wxdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2212, -9.35509, 0.617016)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.11155, -58.1954, -51.0728)
 
 [node name="Area3D" type="Area3D" parent="Tests/BrushUnlock"]
 
@@ -293,7 +292,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_ba56d")
 
 [node name="GrapplingHookUnlock" parent="Tests" instance=ExtResource("10_bnc4y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3902, -8.65845, -1.54324)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.2014, -46.3442, -113.383)
 
 [node name="Area3D" type="Area3D" parent="Tests/GrapplingHookUnlock"]
 
@@ -417,9 +416,6 @@ text = "YOU DIED"
 libraries = {
 "": SubResource("AnimationLibrary_s43u6")
 }
-
-[node name="PickaxeUnlock" parent="." instance=ExtResource("19_hxt3c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21624, 0, -5.53744)
 
 [node name="Node3D" parent="." instance=ExtResource("17_8bke1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77913, 0, -2.72823)

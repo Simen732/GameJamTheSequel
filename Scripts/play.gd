@@ -40,6 +40,7 @@ func on_playerDead():
 	elif Global.stages.boss == true:
 		player.global_position = collision_shape_3d_3.global_position
 
+
 func _on_room_1_spawn_point_area_entered(area: Area3D) -> void:
 	Global.stages.room1 = true
 	Global.stages.pyramid = false
