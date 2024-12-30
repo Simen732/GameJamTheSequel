@@ -5,9 +5,12 @@
 [node name="CampFire" type="Node3D"]
 
 [node name="Camp fire" parent="." instance=ExtResource("1_rio05")]
-transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -0.146802, -1.19209e-07, 1.93504)
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9689, 0)
 light_color = Color(1, 0.638333, 0.38, 1)
-light_energy = 16.0
-omni_range = 30.3305
+light_energy = 8.0
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_range = 17.2698

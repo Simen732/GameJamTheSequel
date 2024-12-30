@@ -7,6 +7,9 @@
 [node name="Root Scene" parent="." instance=ExtResource("1_r4jae")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0935, 0)
 light_color = Color(0.7, 0.399817, 0.119, 1)
-light_energy = 16.0
-omni_range = 5.85576
+light_energy = 4.0
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_range = 10.3992
