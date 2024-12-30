@@ -1,21 +1,22 @@
-[gd_scene load_steps=33 format=4 uid="uid://freo4misrtj7"]
+[gd_scene load_steps=35 format=4 uid="uid://freo4misrtj7"]
 
 [ext_resource type="Script" path="res://Scripts/play.gd" id="1_morjy"]
 [ext_resource type="PackedScene" uid="uid://c07sjg3q23gno" path="res://Models/Decorations/MapGameJam.glb" id="1_tfok1"]
 [ext_resource type="AudioStream" uid="uid://cfcy2r8uyaxn3" path="res://Assets/Audio/BackgroundMusic.mp3" id="2_osw7c"]
 [ext_resource type="PackedScene" uid="uid://liq5gjvkx1s8" path="res://Scenes/Under_Scenes/Player.tscn" id="2_sf7p0"]
 [ext_resource type="PackedScene" uid="uid://bmk7tu64e06hs" path="res://Scenes/ScriptScenes/breakable_wall_script.tscn" id="3_gy5i7"]
+[ext_resource type="PackedScene" uid="uid://mtjd1p5ym8c1" path="res://Models/Decorations/RiddleSign.glb" id="4_iu5lq"]
 [ext_resource type="PackedScene" uid="uid://bkbqqmxyhj72l" path="res://Scenes/Under_Scenes/camp_fire.tscn" id="12_7v4tr"]
 [ext_resource type="PackedScene" uid="uid://cquh6apa5jac0" path="res://Scenes/Under_Scenes/torch.tscn" id="13_ehgp7"]
-[ext_resource type="PackedScene" uid="uid://8ke1toayo6w" path="res://Scenes/Under_Scenes/pickaxe_unlock.tscn" id="13_ju133"]
+[ext_resource type="PackedScene" path="res://Scenes/Under_Scenes/pickaxe_unlock.tscn" id="13_ju133"]
 [ext_resource type="Script" path="res://Scripts/Extra/touchable.gd" id="14_harnf"]
 [ext_resource type="Texture2D" uid="uid://bvpi7gl284u8f" path="res://Assets/Images/Logo.png" id="15_bt3d5"]
-[ext_resource type="PackedScene" uid="uid://bkik1hb6x4ijf" path="res://Scenes/Under_Scenes/wallrun_unlock.tscn" id="15_eyfxn"]
+[ext_resource type="PackedScene" path="res://Scenes/Under_Scenes/wallrun_unlock.tscn" id="15_eyfxn"]
 [ext_resource type="PackedScene" uid="uid://baq3obtjm7q7h" path="res://Scenes/Under_Scenes/miner_helmet.tscn" id="16_dihxi"]
-[ext_resource type="PackedScene" uid="uid://bhyq2abplwxl" path="res://Scenes/Under_Scenes/grappling_hook_unlock.tscn" id="16_ts6em"]
+[ext_resource type="PackedScene" path="res://Scenes/Under_Scenes/grappling_hook_unlock.tscn" id="16_ts6em"]
 [ext_resource type="PackedScene" uid="uid://bqyacodriqysf" path="res://Scenes/Under_Scenes/spider.tscn" id="17_8bke1"]
 [ext_resource type="FontFile" uid="uid://1fkngn26o7r1" path="res://Assets/Playpen_Sans/static/PlaypenSans-Bold.ttf" id="18_n6oe2"]
-[ext_resource type="PackedScene" path="res://Scenes/Under_Scenes/anubis.tscn" id="20_tsusu"]
+[ext_resource type="PackedScene" uid="uid://b38xbgpl3bwkq" path="res://Scenes/Under_Scenes/anubis.tscn" id="20_tsusu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dc16e"]
 
@@ -118,6 +119,9 @@ _data = {
 "fade": SubResource("Animation_g4q41")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2mj2"]
+size = Vector3(20.3907, 10.0433, 2.87946)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_dy4gw"]
 size = Vector3(289.688, 1, 401.47)
 
@@ -197,6 +201,13 @@ transform = Transform3D(0.999944, 0, 0, 0, 1, 0, 0, 0, 1, -0.249508, -0.110231, 
 shape = SubResource("BoxShape3D_r1smb")
 
 [node name="BreakableWallScript" parent="MapGameJam/GrapplingHookWall" index="2" instance=ExtResource("3_gy5i7")]
+
+[node name="Sphere" parent="MapGameJam" index="14"]
+visible = false
+lod_bias = 0.001
+
+[node name="RiddleSign" parent="MapGameJam" instance=ExtResource("4_iu5lq")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 1.15311, -5.96046e-08, -30.1942)
 
 [node name="Player" parent="." instance=ExtResource("2_sf7p0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.529667, 48.2814, 35.09)
@@ -284,6 +295,20 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="Entrance/LoadIntro/CoolView"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Entrance"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3805, -0.694176, 5.67488)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entrance/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69473, 3.80389, -0.155426)
+shape = SubResource("BoxShape3D_h2mj2")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Entrance"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5308, -0.694176, 5.67488)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entrance/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42155, 3.80389, -0.155426)
+shape = SubResource("BoxShape3D_h2mj2")
 
 [node name="LightUnlock" parent="." instance=ExtResource("16_dihxi")]
 transform = Transform3D(-0.742409, 0, 0.669947, 0, 1, 0, -0.669947, 0, -0.742409, 8.8106, 0, 2.32962)
