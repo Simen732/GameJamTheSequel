@@ -1,0 +1,202 @@
+[gd_scene load_steps=4 format=3 uid="uid://b27ix62mxfplo"]
+
+[ext_resource type="Script" path="res://Scripts/UI/gameplay.gd" id="1_bcbs3"]
+[ext_resource type="Texture2D" uid="uid://b8y2oqvwmjy0w" path="res://Assets/Images/HeartFilled.png" id="1_utwno"]
+[ext_resource type="FontFile" uid="uid://1fkngn26o7r1" path="res://Assets/Playpen_Sans/static/PlaypenSans-Bold.ttf" id="2_41quu"]
+
+[node name="Gameplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bcbs3")
+
+[node name="HeartContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 14.0
+offset_right = 106.0
+offset_bottom = 30.0
+
+[node name="Heart" type="TextureRect" parent="HeartContainer"]
+layout_mode = 2
+texture = ExtResource("1_utwno")
+stretch_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="HeartContainer"]
+layout_mode = 2
+texture = ExtResource("1_utwno")
+stretch_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="HeartContainer"]
+layout_mode = 2
+texture = ExtResource("1_utwno")
+stretch_mode = 2
+
+[node name="Heart4" type="TextureRect" parent="HeartContainer"]
+layout_mode = 2
+texture = ExtResource("1_utwno")
+stretch_mode = 2
+
+[node name="Heart5" type="TextureRect" parent="HeartContainer"]
+layout_mode = 2
+texture = ExtResource("1_utwno")
+stretch_mode = 2
+
+[node name="Controls" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -159.0
+offset_top = 4.0
+offset_right = -6.0
+offset_bottom = 29.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_41quu")
+text = "Toggle Controls (X)"
+
+[node name="ControlsList" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -138.0
+offset_top = 28.0
+offset_right = -7.0
+offset_bottom = 48.0
+grow_horizontal = 0
+
+[node name="Dash" type="HBoxContainer" parent="ControlsList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="Dash" type="Label" parent="ControlsList/Dash"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_41quu")
+theme_override_font_sizes/font_size = 12
+text = "Dash:"
+vertical_alignment = 1
+
+[node name="Shift" type="Label" parent="ControlsList/Dash"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_41quu")
+theme_override_font_sizes/font_size = 12
+text = "Shift"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Brush" type="HBoxContainer" parent="ControlsList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="Brush" type="Label" parent="ControlsList/Brush"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_41quu")
+theme_override_font_sizes/font_size = 12
+text = "Brush:"
+vertical_alignment = 1
+
+[node name="2" type="Label" parent="ControlsList/Brush"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_41quu")
+theme_override_font_sizes/font_size = 12
+text = "2"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Pickaxe" type="HBoxContainer" parent="ControlsList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="Pickaxe" type="Label" parent="ControlsList/Pickaxe"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_41quu")
+theme_override_font_sizes/font_size = 12
+text = "Pickaxe:"
+vertical_alignment = 1
+
+[node name="LMB" type="Label" parent="ControlsList/Pickaxe"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_41quu")
+theme_override_font_sizes/font_size = 12
+text = "LMB"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Light" type="HBoxContainer" parent="ControlsList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="Light" type="Label" parent="ControlsList/Light"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_41quu")
+theme_override_font_sizes/font_size = 12
+text = "Light:"
+vertical_alignment = 1
+
+[node name="RMB" type="Label" parent="ControlsList/Light"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_41quu")
+theme_override_font_sizes/font_size = 12
+text = "RMB"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Teleport" type="HBoxContainer" parent="ControlsList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="Teleport" type="Label" parent="ControlsList/Teleport"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_41quu")
+theme_override_font_sizes/font_size = 12
+text = "Teleport"
+vertical_alignment = 1
+
+[node name="Ctrl" type="Label" parent="ControlsList/Teleport"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_41quu")
+theme_override_font_sizes/font_size = 12
+text = "Ctrl"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Grappling Hook" type="HBoxContainer" parent="ControlsList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="Grappling Hook" type="Label" parent="ControlsList/Grappling Hook"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_41quu")
+theme_override_font_sizes/font_size = 12
+text = "Graplling Hook:"
+vertical_alignment = 1
+
+[node name="1" type="Label" parent="ControlsList/Grappling Hook"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_41quu")
+theme_override_font_sizes/font_size = 12
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 1

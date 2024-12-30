@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b53o5wi70bhdt"]
+
+[ext_resource type="PackedScene" uid="uid://bkiahbotr2bks" path="res://Models/Items/grappling_hook.glb" id="1_dmda3"]
+[ext_resource type="Script" path="res://Scripts/Item/grappling_hook.gd" id="1_ebvyk"]
+
+[node name="GrapplingHookScene" type="Node3D"]
+script = ExtResource("1_ebvyk")
+
+[node name="GrapplingHook" parent="." instance=ExtResource("1_dmda3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

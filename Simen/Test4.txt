@@ -1,1 +1,0 @@
-Dette er en fil som bare passer på at mappen blir med i git

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cui65gaoxha2o"]
-
-[ext_resource type="Script" path="res://Elias/Scripts/brushable_object_script.gd" id="1_wlw06"]
-
-[node name="brushable_object_script" type="Node"]
-script = ExtResource("1_wlw06")
