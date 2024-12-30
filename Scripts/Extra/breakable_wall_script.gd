@@ -21,5 +21,6 @@ func on_PickaxeDamageWall(area) -> void:
 		wallHealth -= 1
 		print(wallHealth, area)
 		if wallHealth < 1:
+			Global.PlayerHP += 3
 			hitbox_area.get_parent().queue_free()
 			print(hitbox_area.get_parent())

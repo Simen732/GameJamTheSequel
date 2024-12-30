@@ -1,0 +1,197 @@
+[gd_scene load_steps=10 format=3 uid="uid://bqyacodriqysf"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy/spider.gd" id="1_ucc88"]
+[ext_resource type="PackedScene" uid="uid://f8p2lcifaq0x" path="res://Models/Enemies/Spider.glb" id="2_3mi41"]
+[ext_resource type="PackedScene" uid="uid://bmk7tu64e06hs" path="res://Scenes/ScriptScenes/breakable_wall_script.tscn" id="3_h31gv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5cfh4"]
+size = Vector3(3.59778, 2.29773, 0.926827)
+
+[sub_resource type="Animation" id="Animation_mwg4x"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.766218, 1.70109), Vector3(0, 0.766218, 2.26013), Vector3(0, 0.766218, 2.26013), Vector3(0, 0.766218, 1.66966)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpiderAttackBox:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(3.59778, 2.29773, 0.926827), Vector3(3.59778, 2.29773, 2.95377), Vector3(3.59778, 2.29773, 2.95377), Vector3(3.59778, 2.29773, 0.686358)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpiderAttackBox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.283264, -0.153168, -1.26564), Vector3(0.283264, -0.153168, -1.26564), Vector3(0.283264, -0.153168, -0.290015), Vector3(0.283264, -0.153168, -1.02112)]
+}
+
+[sub_resource type="Animation" id="Animation_w147e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.766218, 1.70109)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpiderAttackBox:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.59778, 2.29773, 0.926827)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpiderAttackBox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.283264, -0.153168, -1.26564)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gvlpi"]
+_data = {
+"RESET": SubResource("Animation_w147e"),
+"attack": SubResource("Animation_mwg4x")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nymh3"]
+size = Vector3(1.30096, 4.52466, 3.12909)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ux7d4"]
+size = Vector3(6.57043, 2.80273, 4.41211)
+
+[node name="Spider" type="CharacterBody3D"]
+script = ExtResource("1_ucc88")
+metadata/Hp = 2
+
+[node name="SpiderModel" parent="." instance=ExtResource("2_3mi41")]
+
+[node name="Skeleton3D" parent="SpiderModel/RootNode/SpiderArmature" index="0"]
+bones/0/rotation = Quaternion(0.707107, 1.68587e-07, 1.68587e-07, 0.707107)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/position = Vector3(2.06329e-05, 0.0152116, -0.000679071)
+bones/1/rotation = Quaternion(0.00363035, -0.000148837, 0.0372757, 0.999299)
+bones/2/rotation = Quaternion(0.437419, 0.132967, -0.545188, 0.702677)
+bones/3/rotation = Quaternion(0.493915, -0.0303122, 0.123748, 0.860125)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(0.0431151, 0.155534, 0.102154, 0.981588)
+bones/4/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(0.155137, 0.391921, -0.521044, 0.742189)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.737201, 0.0234429, 0.0696837, 0.671661)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.0669522, 0.233002, 0.162967, 0.956384)
+bones/8/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(-0.176225, 0.395786, -0.557858, 0.707879)
+bones/11/rotation = Quaternion(0.360996, 0.889575, -0.100092, 0.261381)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(-0.0907463, 0.475993, 0.307556, 0.818905)
+bones/12/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.239584, 0.216682, -0.416777, 0.849673)
+bones/15/rotation = Quaternion(0.579873, 0.683677, -0.202957, 0.393881)
+bones/16/rotation = Quaternion(0.160451, 0.417429, 0.291683, 0.845535)
+bones/16/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.473168, -0.141281, 0.177251, 0.851313)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(0.422647, -0.346572, -0.0888099, 0.832689)
+bones/20/rotation = Quaternion(0.197868, 0.0340495, -0.165734, 0.965516)
+bones/20/scale = Vector3(1, 1, 1)
+bones/22/rotation = Quaternion(0.163884, 0.104306, 0.301131, 0.933586)
+bones/23/rotation = Quaternion(-0.654725, 0.702248, 0.0310697, -0.277882)
+bones/24/rotation = Quaternion(0.0963502, 0.0750033, -0.256138, 0.958898)
+bones/26/rotation = Quaternion(-0.518521, 0.596764, 0.0186396, 0.612096)
+bones/26/scale = Vector3(1, 0.999999, 1)
+bones/27/rotation = Quaternion(-0.42274, -0.748291, 0.098611, 0.501624)
+bones/27/scale = Vector3(1, 1, 1)
+bones/28/rotation = Quaternion(-0.201715, 0.673885, 0.0482557, 0.709128)
+bones/28/scale = Vector3(1, 1, 1)
+bones/30/rotation = Quaternion(-0.309908, 0.444049, 0.256412, 0.800644)
+bones/30/scale = Vector3(1, 1, 1)
+bones/31/rotation = Quaternion(-0.540523, -0.0994618, 0.198886, 0.81141)
+bones/32/rotation = Quaternion(-0.307914, 0.577854, -0.0965393, 0.749636)
+bones/34/rotation = Quaternion(-0.702873, 0.00315415, 0.00300376, 0.711302)
+bones/36/rotation = Quaternion(0.628884, 8.10468e-07, 1.10561e-06, 0.777499)
+bones/37/rotation = Quaternion(0.23727, -0.00028591, 0.000387881, 0.971444)
+bones/41/position = Vector3(0.0169689, 0.000228018, 0.0269139)
+bones/41/rotation = Quaternion(0.071347, 0.681471, 0.724388, -0.0759515)
+bones/43/position = Vector3(0.0261564, 0.000246978, 0.0177154)
+bones/45/position = Vector3(0.0203567, 0.000199114, -0.022015)
+bones/45/rotation = Quaternion(-0.620554, -0.00702884, -0.38045, 0.685654)
+bones/45/scale = Vector3(1, 1, 1)
+bones/47/position = Vector3(0.0283818, 0.000175516, -0.010884)
+bones/47/rotation = Quaternion(-0.595022, -0.311758, -0.45301, 0.586121)
+bones/51/position = Vector3(-0.0167572, 0.000278159, 0.0263336)
+bones/51/rotation = Quaternion(-0.0714608, 0.681483, 0.724377, 0.0758455)
+bones/51/scale = Vector3(1, 1, 1)
+bones/53/position = Vector3(-0.026157, 0.000243329, 0.0177631)
+bones/53/rotation = Quaternion(-0.22201, 0.640748, 0.69321, 0.244158)
+bones/53/scale = Vector3(1, 1, 1)
+bones/55/scale = Vector3(1, 1, 1)
+bones/57/position = Vector3(-0.0283443, 0.000175517, -0.010884)
+bones/57/rotation = Quaternion(0.726991, -0.521208, -0.175367, -0.411185)
+bones/57/scale = Vector3(1, 1, 1)
+
+[node name="SpiderAttackArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.766218, 1.70109)
+
+[node name="SpiderAttackBox" type="CollisionShape3D" parent="SpiderAttackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.283264, -0.153168, -1.26564)
+shape = SubResource("BoxShape3D_5cfh4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpiderAttackArea"]
+libraries = {
+"": SubResource("AnimationLibrary_gvlpi")
+}
+
+[node name="SpiderHitBox" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0421143, 0.921061, -0.167023)
+shape = SubResource("BoxShape3D_nymh3")
+
+[node name="hitboxArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitboxArea"]
+transform = Transform3D(0.898621, 0, 0, 0, 1, 0, 0, 0, 1.08263, 0.00738525, 1.09863, -0.456055)
+shape = SubResource("BoxShape3D_ux7d4")
+
+[node name="BreakableWallScript" parent="." instance=ExtResource("3_h31gv")]
+
+[connection signal="area_entered" from="SpiderAttackArea" to="." method="_on_spider_attack_area_area_entered"]
+
+[editable path="SpiderModel"]
