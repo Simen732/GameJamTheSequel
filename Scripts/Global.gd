@@ -15,6 +15,8 @@ signal playerDead
 
 var menu_open := false
 
+var PlayerHP = 5
+
 var unlocks := {
 	"wallrun": false,
 	"grapplingHook": false,
