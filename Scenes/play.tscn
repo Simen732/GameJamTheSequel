@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Scripts/play.gd" id="1_morjy"]
 [ext_resource type="PackedScene" uid="uid://c07sjg3q23gno" path="res://Models/Decorations/MapGameJam.glb" id="1_tfok1"]
-[ext_resource type="AudioStream" uid="uid://cfcy2r8uyaxn3" path="res://Assets/Audio/BackgroundMusic.mp3" id="2_osw7c"]
 [ext_resource type="PackedScene" uid="uid://liq5gjvkx1s8" path="res://Scenes/Under_Scenes/Player.tscn" id="2_sf7p0"]
 [ext_resource type="PackedScene" uid="uid://bmk7tu64e06hs" path="res://Scenes/ScriptScenes/breakable_wall_script.tscn" id="3_gy5i7"]
 [ext_resource type="PackedScene" uid="uid://mtjd1p5ym8c1" path="res://Models/Decorations/RiddleSign.glb" id="4_iu5lq"]
@@ -10,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cquh6apa5jac0" path="res://Scenes/Under_Scenes/torch.tscn" id="13_ehgp7"]
 [ext_resource type="PackedScene" path="res://Scenes/Under_Scenes/pickaxe_unlock.tscn" id="13_ju133"]
 [ext_resource type="Script" path="res://Scripts/Extra/touchable.gd" id="14_harnf"]
+[ext_resource type="AudioStream" uid="uid://b6ejmkj2jl51y" path="res://Assets/Audio/Egyptian music [VgHOPMoaIvk].mp3" id="15_5wug6"]
 [ext_resource type="Texture2D" uid="uid://bvpi7gl284u8f" path="res://Assets/Images/Logo.png" id="15_bt3d5"]
 [ext_resource type="PackedScene" path="res://Scenes/Under_Scenes/wallrun_unlock.tscn" id="15_eyfxn"]
 [ext_resource type="PackedScene" uid="uid://baq3obtjm7q7h" path="res://Scenes/Under_Scenes/miner_helmet.tscn" id="16_dihxi"]
@@ -56,7 +56,7 @@ density = 8.0
 albedo = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jstfg"]
-size = Vector3(1, 1, 1.12689)
+size = Vector3(1, 1.22644, 1.12689)
 
 [sub_resource type="Animation" id="Animation_sc12s"]
 length = 0.001
@@ -237,7 +237,7 @@ transform = Transform3D(-0.188358, 0, 0.9821, 0, 1, 0, -0.9821, 0, -0.188358, -5
 transform = Transform3D(5.23627e-05, 0, -1, 0, 1, 0, 1, 0, 5.23627e-05, 5.7458, 0.300167, -12.3843)
 
 [node name="Torch7" parent="Entrance" instance=ExtResource("13_ehgp7")]
-transform = Transform3D(0.974496, 0, 0.224407, 0, 1, 0, -0.224407, 0, 0.974496, -2.766, 0.300064, -21.9101)
+transform = Transform3D(0.974496, 0, 0.224407, 0, 1, 0, -0.224407, 0, 0.974496, -2.75705, 0.0409546, -21.6711)
 
 [node name="Torch8" parent="Entrance" instance=ExtResource("13_ehgp7")]
 transform = Transform3D(0.982945, 0, -0.1839, 0, 1, 0, 0.1839, 0, 0.982945, 2.76572, 0.300167, -21.9707)
@@ -252,7 +252,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.37502, -15.688)
 script = ExtResource("14_harnf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Entrance/LoadIntro"]
-transform = Transform3D(4.17075, 0, 0, 0, 1, 0, 0, 0, 3.70916, 0, -0.969959, -0.47435)
+transform = Transform3D(4.17075, 0, 0, 0, 1, 0, 0, 0, 3.70916, 0, -1.08318, -0.47435)
 shape = SubResource("BoxShape3D_jstfg")
 
 [node name="CoolView" type="Control" parent="Entrance/LoadIntro"]
@@ -545,8 +545,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7743, 8, -46.3046)
 transform = Transform3D(0.784669, 0.618943, -0.0347175, -0.608649, 0.75857, -0.232634, -0.117651, 0.203671, 0.971945, 7.7899, 0.0281945, 1.47021)
 
 [node name="BG-Music" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("2_osw7c")
+stream = ExtResource("15_5wug6")
 attenuation_model = 3
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
