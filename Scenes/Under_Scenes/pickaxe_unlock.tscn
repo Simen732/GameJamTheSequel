@@ -24,7 +24,7 @@ material_override = SubResource("StandardMaterial3D_58pvs")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.451711, 0.189764)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00050199, 0.451711, 0.187276)
 shape = SubResource("SphereShape3D_vf5s1")
 
 [editable path="Axe_and_Pickaxe (_blend)"]
