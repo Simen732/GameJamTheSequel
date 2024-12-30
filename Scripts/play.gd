@@ -41,7 +41,23 @@ func on_playerDead():
 	else:
 		player.global_position = original_spawn.global_position
 
-func _on_room_1_spawn_point_area_entered(area: Area3D) -> void:
+
+func _on_area_3d_3_area_entered(area: Area3D) -> void:
 	Global.stages.room1 = true
 	Global.stages.pyramid = false
+	print(Global.stages)
+
+
+func _on_area_3d_4_area_entered(area: Area3D) -> void:
+	Global.stages.room2 = true
+	Global.stages.pyramid = false
+	Global.stages.room1 = false
+	print(Global.stages)
+
+
+func _on_area_3d_5_area_entered(area: Area3D) -> void:
+	Global.stages.boss = true
+	Global.stages.pyramid = false
+	Global.stages.room1 = false
+	Global.stages.room2 = false
 	print(Global.stages)
