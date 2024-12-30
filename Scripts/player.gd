@@ -9,6 +9,13 @@ const LOOK_LIMIT_DOWN = 80
 @onready var pickaxe: Node3D = $Camera3D/Pickaxe
 @onready var camera = $Camera3D
 @onready var walk: AudioStreamPlayer3D = $Walk
+@onready var walk_2: AudioStreamPlayer3D = $Walk2
+@onready var walk_3: AudioStreamPlayer3D = $Walk3
+@onready var walk_4: AudioStreamPlayer3D = $Walk4
+@onready var walk_5: AudioStreamPlayer3D = $Walk5
+@onready var walk_6: AudioStreamPlayer3D = $Walk6
+@onready var walk_7: AudioStreamPlayer3D = $Walk7
+@onready var walk_8: AudioStreamPlayer3D = $Walk8
 
 var dashSpeed = 5
 var jumpCount = 2
@@ -17,11 +24,14 @@ var dashing = false
 var dashDuration = 0.5 
 var dashTimer = 0.0  
 var TeleportRange = 15
+var walkingArray: Array
+var donePlaying = true
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.openMenu.connect(_on_menu_opened)
 	Global.closeMenu.connect(_on_menu_closed)
+	walkingArray = [walk, walk_2, walk_3, walk_4, walk_5, walk_6, walk_7, walk_8]
 	
 func _input(event):
 	if event is InputEventMouseMotion and !Global.menu_open:
@@ -37,8 +47,10 @@ func _physics_process(delta: float) -> void:
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	if direction:
-		walk.play()
+	if direction and donePlaying:
+		donePlaying = false
+		var randomInteger = randi() % 8
+		walkingArray[randomInteger].play()
 
 	# Add gravity if not on the floor
 	if not is_on_floor():
@@ -139,3 +151,35 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		Global.emit_signal("LightUnlocked")
 		Global.unlocks.light = true
 		area.get_parent().queue_free()
+
+
+func _on_walk_finished() -> void:
+	donePlaying = true
+
+
+func _on_walk_2_finished() -> void:
+	donePlaying = true
+
+
+func _on_walk_3_finished() -> void:
+	donePlaying = true
+
+
+func _on_walk_4_finished() -> void:
+	donePlaying = true
+
+
+func _on_walk_5_finished() -> void:
+	donePlaying = true
+
+
+func _on_walk_6_finished() -> void:
+	donePlaying = true
+
+
+func _on_walk_7_finished() -> void:
+	donePlaying = true
+
+
+func _on_walk_8_finished() -> void:
+	donePlaying = true
