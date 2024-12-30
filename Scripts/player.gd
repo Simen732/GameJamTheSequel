@@ -120,12 +120,12 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		Global.unlocks.teleport = true
 		area.get_parent().queue_free()
 		
-	if area.get_parent().name == "WallRunningUnlock":
+	if area.get_parent().name == "WallrunUnlock":
 		print("Du har nå WallRunningUnlock")
 		Global.unlocks.wallrun = true
 		area.get_parent().queue_free()
 		
-	if area.get_parent().name == "GraplingHookUnlock":
+	if area.get_parent().name == "GrapplingHookUnlock":
 		print("Du har nå GraplingHookUnlock")
 		Global.emit_signal("GrappleUnlocked")
 		Global.unlocks.grapplingHook = true

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmk7tu64e06hs"]
+
+[ext_resource type="Script" path="res://Scripts/Extra/breakable_wall_script.gd" id="1_q2eac"]
+
+[node name="BreakableWallScript" type="Node"]
+script = ExtResource("1_q2eac")
