@@ -6,6 +6,7 @@ extends Node3D
 @onready var collision_shape_3d_2: CollisionShape3D = $Area3D/CollisionShape3D2
 @onready var collision_shape_3d_3: CollisionShape3D = $Area3D2/CollisionShape3D3
 @onready var bg_music: AudioStreamPlayer3D = $"BG-Music"
+@onready var original_spawn: CollisionShape3D = $Area3D/OriginalSpawn
 
 @onready var control: Control = $Control
 
@@ -39,7 +40,8 @@ func on_playerDead():
 		player.global_position = collision_shape_3d_2.global_position
 	elif Global.stages.boss == true:
 		player.global_position = collision_shape_3d_3.global_position
-
+	else:
+		player.global_position = original_spawn.global_position
 
 func _on_room_1_spawn_point_area_entered(area: Area3D) -> void:
 	Global.stages.room1 = true
