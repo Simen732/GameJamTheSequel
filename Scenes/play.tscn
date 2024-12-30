@@ -1,4 +1,6 @@
-[gd_scene load_steps=44 format=4 uid="uid://freo4misrtj7"]
+
+[gd_scene load_steps=46 format=4 uid="uid://freo4misrtj7"]
+
 
 [ext_resource type="Script" path="res://Scripts/play.gd" id="1_morjy"]
 [ext_resource type="PackedScene" uid="uid://c07sjg3q23gno" path="res://Models/Decorations/MapGameJam.glb" id="1_tfok1"]
@@ -182,6 +184,18 @@ _data = {
 "RESET": SubResource("Animation_qv4hd")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_okfy4"]
+size = Vector3(1, 3.87032, 2.26463)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pyn1y"]
+size = Vector3(0.735657, 1, 0.864128)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b05aj"]
+size = Vector3(1, 6.34988, 4.26611)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kdohh"]
+size = Vector3(5.07184, 4.07043, 1)
+
 [node name="Play" type="Node3D"]
 script = ExtResource("1_morjy")
 
@@ -196,7 +210,7 @@ data = SubResource("VoxelGIData_bpm0m")
 [node name="MapGameJam" parent="." instance=ExtResource("1_tfok1")]
 
 [node name="Player" parent="." instance=ExtResource("2_sf7p0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.529667, 1.02197, -0.924207)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.529667, 48.2814, 35.09)
 
 [node name="Tests" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1824, 58.3102, 55.5514)
@@ -411,5 +425,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77913, 0, -2.72823)
 [connection signal="area_entered" from="Entrance/LoadIntro" to="Entrance/LoadIntro" method="_on_area_entered"]
 [connection signal="timeout" from="Entrance/LoadIntro/CoolView/Timer" to="Entrance/LoadIntro" method="_on_timer_timeout"]
 [connection signal="area_entered" from="DeathBarrier" to="." method="_on_death_barrier_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="area_entered" from="room1SpawnPoint" to="." method="_on_room_1_spawn_point_area_entered"]
 
 [editable path="MapGameJam"]
