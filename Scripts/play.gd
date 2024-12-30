@@ -13,6 +13,7 @@ extends Node3D
 func _ready() -> void:
 	Global.playerDead.connect(on_playerDead)
 	bg_music.play()
+	$MapGameJam/Cylinder.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

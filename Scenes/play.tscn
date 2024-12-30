@@ -202,6 +202,9 @@ data = SubResource("VoxelGIData_bpm0m")
 
 [node name="MapGameJam" parent="." instance=ExtResource("1_tfok1")]
 
+[node name="Cylinder" parent="MapGameJam" index="7"]
+visible = false
+
 [node name="BreakableWallScript" parent="MapGameJam/WallrunWall" index="1" instance=ExtResource("3_gy5i7")]
 
 [node name="hitboxArea" type="Area3D" parent="MapGameJam/WallrunWall" index="2"]
