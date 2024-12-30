@@ -18,7 +18,15 @@ func _ready() -> void:
 	Global.GrappleUnlocked.connect(func(): enableControlListItem("grapple"))
 
 func _process(delta: float) -> void:
-	pass
+	var arrayOfHearts = [$HeartContainer/Heart, $HeartContainer/Heart2, $HeartContainer/Heart3, $HeartContainer/Heart4, $HeartContainer/Heart5]
+	# Loop through each heart and update its texture based on player HP
+	for i in range(arrayOfHearts.size()):
+		if i < Global.PlayerHP:
+			# Show filled heart if index is less than current HP
+			arrayOfHearts[i].texture = load("res://Assets/Images/HeartFilled.png")
+		else:
+			# Show empty heart if index is greater than or equal to current HP
+			arrayOfHearts[i].texture = load("res://Assets/Images/HeartEmpty.png")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("openControls"):
