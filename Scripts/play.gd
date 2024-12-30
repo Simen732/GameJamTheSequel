@@ -5,12 +5,14 @@ extends Node3D
 @onready var collision_shape_3d: CollisionShape3D = $room1SpawnPoint/CollisionShape3D
 @onready var collision_shape_3d_2: CollisionShape3D = $Area3D/CollisionShape3D2
 @onready var collision_shape_3d_3: CollisionShape3D = $Area3D2/CollisionShape3D3
+@onready var bg_music: AudioStreamPlayer3D = $"BG-Music"
 
 @onready var control: Control = $Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.playerDead.connect(on_playerDead)
+	bg_music.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,3 +44,7 @@ func _on_room_1_spawn_point_area_entered(area: Area3D) -> void:
 	Global.stages.room1 = true
 	Global.stages.pyramid = false
 	print(Global.stages)
+
+
+func _on_bg_music_finished() -> void:
+	bg_music.play()
