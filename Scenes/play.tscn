@@ -196,6 +196,17 @@ data = SubResource("VoxelGIData_bpm0m")
 
 [node name="MapGameJam" parent="." instance=ExtResource("1_tfok1")]
 
+[node name="Cylinder" parent="MapGameJam" index="7"]
+visible = false
+
+[node name="BreakableWallScript" parent="MapGameJam/WallrunWall" index="1" instance=ExtResource("3_gy5i7")]
+
+[node name="hitboxArea" type="Area3D" parent="MapGameJam/WallrunWall" index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapGameJam/WallrunWall/hitboxArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.584045, -0.010376, 0.039856)
+shape = SubResource("BoxShape3D_smxbt")
+
 [node name="Player" parent="." instance=ExtResource("2_sf7p0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.529667, 48.2814, 35.09)
 
