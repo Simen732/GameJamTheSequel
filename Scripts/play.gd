@@ -56,6 +56,8 @@ func _on_area_3d_4_area_entered(area: Area3D) -> void:
 
 
 func _on_area_3d_5_area_entered(area: Area3D) -> void:
+	$"BG-Music".stop()
+	$"BossMusic".play()
 	Global.stages.boss = true
 	Global.stages.pyramid = false
 	Global.stages.room1 = false
