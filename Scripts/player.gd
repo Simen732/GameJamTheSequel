@@ -11,20 +11,19 @@ const LOOK_LIMIT_DOWN = 80
 
 var dashSpeed = 5
 var jumpCount = 2
-var Menu_open = false
 var pitch: float = 0.0  
 var dashing = false
 var dashDuration = 0.5 
 var dashTimer = 0.0  
 var TeleportRange = 15
 
-
-
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) 
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Global.openMenu.connect(_on_menu_opened)
+	Global.closeMenu.connect(_on_menu_closed)
 	
 func _input(event):
-	if event is InputEventMouseMotion and !Menu_open:
+	if event is InputEventMouseMotion and !Global.menu_open:
 		rotate_y(deg_to_rad(-event.relative.x * LOOK_SENSITIVITY))
 		
 		pitch -= deg_to_rad(event.relative.y * LOOK_SENSITIVITY)
@@ -44,16 +43,6 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		jumpCount = 2
 
-	if Input.is_action_just_pressed("escape"):
-		if Menu_open == false:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
-			Menu_open = true
-			print("Den er open")
-		else: 
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) 
-			Menu_open = false
-			print("Den er lukket")
-			
 	# Handle jump
 	if Input.is_action_just_pressed("Jump") and jumpCount > 0:
 		jumpCount -= 1
@@ -104,8 +93,12 @@ func _physics_process(delta: float) -> void:
 			dashing = false  
 			
 	move_and_slide()
-	
 
+func _on_menu_opened() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _on_menu_closed() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent().name == "PickaxeUnlock":

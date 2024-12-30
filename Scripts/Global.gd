@@ -9,6 +9,10 @@ signal TeleportUnlocked
 signal GrappleUnlocked
 signal LightUnlocked
 
+signal openMenu
+signal closeMenu
+var menu_open := false
+
 var unlocks := {
 	"wallrun": false,
 	"grapplingHook": false,
@@ -25,3 +29,10 @@ var stages := {
 	"room2": false,
 	"boss": false
 }
+
+func toggle_menu():
+	menu_open = !menu_open
+	if menu_open:
+		emit_signal("openMenu")
+	else:
+		emit_signal("closeMenu")
