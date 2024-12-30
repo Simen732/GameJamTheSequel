@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://freo4misrtj7"]
+[gd_scene load_steps=30 format=4 uid="uid://freo4misrtj7"]
 
 [ext_resource type="Script" path="res://Scripts/play.gd" id="1_morjy"]
 [ext_resource type="PackedScene" uid="uid://c07sjg3q23gno" path="res://Models/Decorations/MapGameJam.glb" id="1_tfok1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bmk7tu64e06hs" path="res://Scenes/ScriptScenes/breakable_wall_script.tscn" id="3_gy5i7"]
 [ext_resource type="PackedScene" uid="uid://bkbqqmxyhj72l" path="res://Scenes/Under_Scenes/camp_fire.tscn" id="12_7v4tr"]
 [ext_resource type="PackedScene" uid="uid://cquh6apa5jac0" path="res://Scenes/Under_Scenes/torch.tscn" id="13_ehgp7"]
+[ext_resource type="PackedScene" uid="uid://8ke1toayo6w" path="res://Scenes/Under_Scenes/pickaxe_unlock.tscn" id="13_ju133"]
 [ext_resource type="Script" path="res://Scripts/Extra/touchable.gd" id="14_harnf"]
 [ext_resource type="Texture2D" uid="uid://bvpi7gl284u8f" path="res://Assets/Images/Logo.png" id="15_bt3d5"]
 [ext_resource type="PackedScene" uid="uid://baq3obtjm7q7h" path="res://Scenes/Under_Scenes/miner_helmet.tscn" id="16_dihxi"]
@@ -511,6 +512,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4126, 8, -71.4998)
 
 [node name="Spider3" parent="." instance=ExtResource("17_8bke1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7743, 8, -46.3046)
+
+[node name="PickaxeUnlock" parent="." instance=ExtResource("13_ju133")]
+transform = Transform3D(0.784669, 0.618943, -0.0347175, -0.608649, 0.75857, -0.232634, -0.117651, 0.203671, 0.971945, 7.7899, 0.0281945, 1.47021)
 
 [connection signal="area_entered" from="Entrance/LoadIntro" to="Entrance/LoadIntro" method="_on_area_entered"]
 [connection signal="timeout" from="Entrance/LoadIntro/CoolView/Timer" to="Entrance/LoadIntro" method="_on_timer_timeout"]
