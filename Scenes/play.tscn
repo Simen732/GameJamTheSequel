@@ -182,6 +182,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q0o38"]
+size = Vector3(1.28321, 6.79613, 6.13942)
 
 [node name="Play" type="Node3D"]
 script = ExtResource("1_morjy")
@@ -195,17 +196,6 @@ size = Vector3(129.51, 122.497, 244.059)
 data = SubResource("VoxelGIData_bpm0m")
 
 [node name="MapGameJam" parent="." instance=ExtResource("1_tfok1")]
-
-[node name="Cylinder" parent="MapGameJam" index="7"]
-visible = false
-
-[node name="BreakableWallScript" parent="MapGameJam/WallrunWall" index="1" instance=ExtResource("3_gy5i7")]
-
-[node name="hitboxArea" type="Area3D" parent="MapGameJam/WallrunWall" index="2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MapGameJam/WallrunWall/hitboxArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.584045, -0.010376, 0.039856)
-shape = SubResource("BoxShape3D_smxbt")
 
 [node name="Player" parent="." instance=ExtResource("2_sf7p0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.529667, 48.2814, 35.09)
@@ -421,6 +411,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77913, 0, -2.72823)
 
 [node name="OriginalSpawn" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.558685, 47.5133, 36.8973)
+shape = SubResource("BoxShape3D_q0o38")
+
+[node name="Area3D2" type="Area3D" parent="."]
+
+[node name="kreft" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0314553, 0.562223, 0.182836)
+shape = SubResource("BoxShape3D_q0o38")
+
+[node name="Area3D3" type="Area3D" parent="."]
+
+[node name="kreft2" type="CollisionShape3D" parent="Area3D3"]
+transform = Transform3D(0.682751, 0, -0.730651, 0, 1, 0, 0.730651, 0, 0.682751, -26.8649, -6.03734, -44.8241)
+shape = SubResource("BoxShape3D_q0o38")
+
+[node name="Area3D4" type="Area3D" parent="."]
+
+[node name="kreft3" type="CollisionShape3D" parent="Area3D4"]
+transform = Transform3D(0.999958, 0, 0.00914535, 0, 1, 0, -0.00914535, 0, 0.999958, -8.29242, 11.5233, -59.0524)
+shape = SubResource("BoxShape3D_q0o38")
+
+[node name="Area3D5" type="Area3D" parent="."]
+
+[node name="kreft4" type="CollisionShape3D" parent="Area3D5"]
+transform = Transform3D(0.150295, 0, -0.988641, 0, 1, 0, 0.988641, 0, 0.150295, -0.439398, 24.4519, -84.3408)
 shape = SubResource("BoxShape3D_q0o38")
 
 [connection signal="area_entered" from="Entrance/LoadIntro" to="Entrance/LoadIntro" method="_on_area_entered"]
