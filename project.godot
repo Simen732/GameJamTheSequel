@@ -20,6 +20,16 @@ config/windows_native_icon="res://LogoWithBG.ico"
 
 Global="*res://Scripts/Global.gd"
 
+[display]
+
+window/size/viewport_width=3840
+window/size/viewport_height=2160
+window/size/mode=3
+window/size/resizable=false
+window/size/borderless=true
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [dotnet]
 
 project/assembly_name="Gamejam"

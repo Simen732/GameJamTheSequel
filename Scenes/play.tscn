@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://freo4misrtj7"]
+[gd_scene load_steps=24 format=3 uid="uid://freo4misrtj7"]
 
 [ext_resource type="PackedScene" uid="uid://c07sjg3q23gno" path="res://Models/Decorations/MapGameJam.glb" id="1_tfok1"]
 [ext_resource type="PackedScene" uid="uid://liq5gjvkx1s8" path="res://Scenes/Under_Scenes/Player.tscn" id="2_sf7p0"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://u0okwu2te1hc" path="res://Models/Items/Ring.glb" id="9_gr0ag"]
 [ext_resource type="PackedScene" uid="uid://bkiahbotr2bks" path="res://Models/Items/grappling_hook.glb" id="10_bnc4y"]
 [ext_resource type="PackedScene" uid="uid://bc18ri508apjn" path="res://Models/Items/Scroll.glb" id="11_jkdrr"]
+[ext_resource type="PackedScene" uid="uid://bkbqqmxyhj72l" path="res://Scenes/Under_Scenes/camp_fire.tscn" id="12_7v4tr"]
+[ext_resource type="PackedScene" uid="uid://cquh6apa5jac0" path="res://Scenes/Under_Scenes/torch.tscn" id="13_ehgp7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cq01r"]
 
@@ -41,91 +43,123 @@ size = Vector3(1, 3, 1)
 
 [node name="Play" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
 [node name="MapGameJam" parent="." instance=ExtResource("1_tfok1")]
 
 [node name="Player" parent="." instance=ExtResource("2_sf7p0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0181001, 48.7917, 39.3739)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.33687, 48.586, 46.1132)
 
-[node name="Pickaxeable" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29834, 48.023, 32.4103)
+[node name="Tests" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1824, 58.3102, 55.5514)
+
+[node name="Pickaxeable" type="CSGMesh3D" parent="Tests"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29834, -10.2872, -11.6219)
 mesh = SubResource("BoxMesh_cq01r")
 
-[node name="hitboxArea" type="Area3D" parent="Pickaxeable"]
+[node name="hitboxArea" type="Area3D" parent="Tests/Pickaxeable"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pickaxeable/hitboxArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tests/Pickaxeable/hitboxArea"]
 shape = SubResource("BoxShape3D_vlvqq")
 
-[node name="BreakableWallScript" parent="Pickaxeable" instance=ExtResource("3_gy5i7")]
+[node name="BreakableWallScript" parent="Tests/Pickaxeable" instance=ExtResource("3_gy5i7")]
 
-[node name="Brushable" type="CSGMesh3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.80564, 48.4304, 32.4103)
+[node name="Brushable" type="CSGMesh3D" parent="Tests"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.80564, -9.87978, -11.6219)
 mesh = SubResource("BoxMesh_cq01r")
 
-[node name="brushArea" type="Area3D" parent="Brushable"]
+[node name="brushArea" type="Area3D" parent="Tests/Brushable"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Brushable/brushArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tests/Brushable/brushArea"]
 shape = SubResource("BoxShape3D_07cpl")
 
-[node name="brushable_object_script" parent="Brushable" instance=ExtResource("4_xuxl8")]
+[node name="brushable_object_script" parent="Tests/Brushable" instance=ExtResource("4_xuxl8")]
 
-[node name="PickaxeUnlock" parent="." instance=ExtResource("5_ubixr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1614, 47, 36.9923)
+[node name="PickaxeUnlock" parent="Tests" instance=ExtResource("5_ubixr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1614, -11.3102, -7.03996)
 
-[node name="Area3D" type="Area3D" parent="PickaxeUnlock"]
+[node name="Area3D" type="Area3D" parent="Tests/PickaxeUnlock"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PickaxeUnlock/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tests/PickaxeUnlock/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 2)
 shape = SubResource("BoxShape3D_r1h2r")
 
-[node name="WallrunUnlock" parent="." instance=ExtResource("6_o4cu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.243, 48.137, 33.6735)
+[node name="WallrunUnlock" parent="Tests" instance=ExtResource("6_o4cu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.243, -10.1732, -10.3587)
 
-[node name="Area3D" type="Area3D" parent="WallrunUnlock"]
+[node name="Area3D" type="Area3D" parent="Tests/WallrunUnlock"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallrunUnlock/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tests/WallrunUnlock/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_6d4y2")
 
-[node name="BrushUnlock" parent="." instance=ExtResource("7_0wxdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2212, 48.9551, 44.6493)
+[node name="BrushUnlock" parent="Tests" instance=ExtResource("7_0wxdh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2212, -9.35509, 0.617016)
 
-[node name="Area3D" type="Area3D" parent="BrushUnlock"]
+[node name="Area3D" type="Area3D" parent="Tests/BrushUnlock"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BrushUnlock/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tests/BrushUnlock/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("BoxShape3D_1f4ok")
 
-[node name="LightUnlock" parent="." instance=ExtResource("8_41n1l")]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -15.2153, 47.2243, 36.7588)
+[node name="LightUnlock" parent="Tests" instance=ExtResource("8_41n1l")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -15.2153, -11.0859, -7.27347)
 
-[node name="Area3D" type="Area3D" parent="LightUnlock"]
+[node name="Area3D" type="Area3D" parent="Tests/LightUnlock"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LightUnlock/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tests/LightUnlock/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5001, 149.5, 55.5)
 shape = SubResource("BoxShape3D_lg2nc")
 
-[node name="TeleportUnlock" parent="." instance=ExtResource("9_gr0ag")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3515, 48.8865, 40.0954)
+[node name="TeleportUnlock" parent="Tests" instance=ExtResource("9_gr0ag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3515, -9.42365, -3.93679)
 
-[node name="Area3D" type="Area3D" parent="TeleportUnlock"]
+[node name="Area3D" type="Area3D" parent="Tests/TeleportUnlock"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportUnlock/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tests/TeleportUnlock/Area3D"]
 shape = SubResource("BoxShape3D_fxhlh")
 
-[node name="OtherTeleportUnlock" parent="." instance=ExtResource("11_jkdrr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7306, 47.4635, 33.8385)
+[node name="OtherTeleportUnlock" parent="Tests" instance=ExtResource("11_jkdrr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7306, -10.8467, -10.1937)
 
-[node name="Area3D" type="Area3D" parent="OtherTeleportUnlock"]
+[node name="Area3D" type="Area3D" parent="Tests/OtherTeleportUnlock"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OtherTeleportUnlock/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tests/OtherTeleportUnlock/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_ba56d")
 
-[node name="GrapplingHookUnlock" parent="." instance=ExtResource("10_bnc4y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3902, 49.6517, 42.489)
+[node name="GrapplingHookUnlock" parent="Tests" instance=ExtResource("10_bnc4y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3902, -8.65845, -1.54324)
 
-[node name="Area3D" type="Area3D" parent="GrapplingHookUnlock"]
+[node name="Area3D" type="Area3D" parent="Tests/GrapplingHookUnlock"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GrapplingHookUnlock/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tests/GrapplingHookUnlock/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_g6sf1")
+
+[node name="CampFire" parent="." instance=ExtResource("12_7v4tr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.04158, 47, 40.9685)
+
+[node name="Torch" parent="." instance=ExtResource("13_ehgp7")]
+transform = Transform3D(-0.188358, 0, 0.9821, 0, 1, 0, -0.9821, 0, -0.188358, -2.766, 49.502, 18.808)
+
+[node name="Torch2" parent="." instance=ExtResource("13_ehgp7")]
+transform = Transform3D(5.23627e-05, 0, -1, 0, 1, 0, 1, 0, 5.23627e-05, 2.76572, 49.5021, 18.8079)
+
+[node name="Torch3" parent="." instance=ExtResource("13_ehgp7")]
+transform = Transform3D(-0.188358, 0, 0.9821, 0, 1, 0, -0.9821, 0, -0.188358, -2.766, 49.502, 10.098)
+
+[node name="Torch4" parent="." instance=ExtResource("13_ehgp7")]
+transform = Transform3D(5.23627e-05, 0, -1, 0, 1, 0, 1, 0, 5.23627e-05, 2.76572, 49.5021, 10.0979)
+
+[node name="Torch5" parent="." instance=ExtResource("13_ehgp7")]
+transform = Transform3D(-0.188358, 0, 0.9821, 0, 1, 0, -0.9821, 0, -0.188358, -5.73647, 49.502, 3.8022)
+
+[node name="Torch6" parent="." instance=ExtResource("13_ehgp7")]
+transform = Transform3D(5.23627e-05, 0, -1, 0, 1, 0, 1, 0, 5.23627e-05, 5.7458, 49.5021, 3.80214)
+
+[node name="Torch7" parent="." instance=ExtResource("13_ehgp7")]
+transform = Transform3D(0.974496, 0, 0.224407, 0, 1, 0, -0.224407, 0, 0.974496, -2.766, 49.502, -5.72367)
+
+[node name="Torch8" parent="." instance=ExtResource("13_ehgp7")]
+transform = Transform3D(0.982945, 0, -0.1839, 0, 1, 0, 0.1839, 0, 0.982945, 2.76572, 49.5021, -5.78427)
